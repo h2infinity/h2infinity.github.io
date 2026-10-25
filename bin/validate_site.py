@@ -86,6 +86,8 @@ def source_check():
             assert (ROOT / "_includes" / include).exists(), f"Missing include: {include}"
         for route in re.findall(r"['\"](/[^'\"]*/)['\"]\s*\|\s*relative_url", text):
             assert route in routes or any(frontmatter(p).get("permalink") == route for p in paths), f"Unknown route: {route}"
+    for content in paths + list((ROOT / "_includes").rglob("*.md")) + list((ROOT / "_includes").rglob("*.liquid")):
+        assert "web.eecs.utk.edu/~mdjouadi" not in content.read_text(encoding="utf-8"), f"Old faculty website link in public content: {content}"
     assert (ROOT / "assets/img/djouadi.jpg").exists()
     assert (ROOT / "assets/img/favicon.svg").exists()
     assert config["collections"]["publications"]["output"] is False
@@ -122,21 +124,37 @@ class Page(HTMLParser):
     def __init__(self):
         super().__init__()
         self.links, self.ids, self.images = [], set(), []
-        self.scripts, self.styles = [], []
+        self.scripts, self.styles, self.inputs = [], [], []
+        self.code_depth = 0
+        self.literal_input = False
 
     def handle_starttag(self, tag, attributes):
         attrs = dict(attributes)
+        if tag in ("code", "pre"):
+            self.code_depth += 1
+        if tag == "input":
+            self.inputs.append((attrs, self.code_depth))
         if attrs.get("id"):
             self.ids.add(attrs["id"])
         for attr in ("href", "src"):
             if attrs.get(attr):
                 self.links.append(attrs[attr])
+        if attrs.get("srcset"):
+            self.links.extend(part.strip().split()[0] for part in attrs["srcset"].split(",") if part.strip())
         if tag == "img":
             self.images.append(attrs)
         if tag == "script" and attrs.get("src"):
             self.scripts.append(attrs["src"])
         if tag == "link" and attrs.get("rel") == "stylesheet":
             self.styles.append(attrs.get("href", ""))
+
+    def handle_endtag(self, tag):
+        if tag in ("code", "pre"):
+            self.code_depth = max(0, self.code_depth - 1)
+
+    def handle_data(self, data):
+        if "<input" in data:
+            self.literal_input = True
 
 
 def built_check(destination, baseurl):
@@ -171,6 +189,15 @@ def built_check(destination, baseurl):
                 assert unquote(url.fragment) in parsed[target].ids, f"Broken anchor: {href}"
     home = (destination / "index.html").read_text(encoding="utf-8")
     pubs = (destination / "publications/index.html").read_text(encoding="utf-8")
+    publication_page = parsed[destination / "publications/index.html"]
+    search = [(attrs, depth) for attrs, depth in publication_page.inputs if attrs.get("id") == "bibsearch"]
+    assert len(search) == 1, "Publication search must render as one HTML input"
+    attrs, depth = search[0]
+    assert attrs.get("type") == "search" and attrs.get("aria-label") and depth == 0, "Invalid publication search input"
+    assert not publication_page.literal_input, "Publication input markup is visible as text"
+    assert sum("/assets/js/bibsearch.js" in src for src in publication_page.scripts) == 1, "Missing or duplicate search script"
+    assert pubs.index('id="published-papers"') < pubs.index('id="ban2026formation"') < pubs.index('id="preprints"'), "ACC paper must appear under published papers"
+    assert "https://ieeexplore.ieee.org/document/11615769" in pubs and "10.1109/ACC60714.2026.11615769" in pubs
     assert "Networked Systems Laboratory" in home
     assert "Recent Publications" in home
     for key in bibliography():
@@ -187,6 +214,8 @@ def built_check(destination, baseurl):
         for member in group["members"]:
             assert member["id"] in parsed[destination / "people/index.html"].ids, f"Missing person: {member['name']}"
     assert "Electrical Engineering" in people and "alumni" in people
+    for detail in ("computational fluid dynamics", "model order reduction", "RWTH Aachen", "power distribution systems"):
+        assert detail in people, f"Updated Hemanta Ban biography missing: {detail}"
     projects = (destination / "projects/index.html").read_text(encoding="utf-8")
     assert "funded-projects" not in projects and "Funding &amp; projects" not in projects, "Removed funding section was rendered"
     for file in (ROOT / "_projects").glob("*.md"):

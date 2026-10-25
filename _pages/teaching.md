@@ -7,7 +7,7 @@ nav: true
 nav_order: 5
 ---
 
-Professor Djouadi's teaching covers systems, control, and probability. The following courses appear on his [faculty course page](https://web.eecs.utk.edu/~mdjouadi/courses.html); this is a historical teaching list, not a current semester schedule.
+Professor Djouadi's teaching covers systems, control, and probability. The following courses were transcribed from his former faculty course page. This is a historical teaching list, not a current semester schedule.
 
 - ECE 613: Nonlinear Systems
 - ECE 511: Linear Systems Theory

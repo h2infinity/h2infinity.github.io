@@ -15,7 +15,7 @@ How can individual components coordinate when each has access to only part of th
 
 - [Distributed H²-optimal control of spatially invariant systems (CDC 2025)](https://doi.org/10.1109/CDC57313.2025.11312577)
 - [Private and common information states for decentralized team equilibrium (2026 preprint)](https://arxiv.org/abs/2605.27645)
-- [Distributed attraction-repulsion potential for multi-agent formation control (2026 preprint)](https://arxiv.org/abs/2605.01161)
+- [Distributed attraction-repulsion potential for multi-agent formation control (ACC 2026)](https://ieeexplore.ieee.org/document/11615769)
 
 ## Data-driven nonlinear model reduction
 

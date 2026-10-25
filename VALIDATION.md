@@ -10,7 +10,7 @@ The existing Jekyll/al-folio framework, Liquid layouts, homepage includes, resea
 
 Repository-wide Prettier formatting completed successfully. Three inherited Sass files received formatting-only changes; theme values and layout rules were preserved.
 
-`python bin/validate_site.py` passes for 18 active content files, 14 published papers, and five preprints. It checks front matter, layout/include references, route uniqueness, navigation order, required assets, balanced BibTeX fields, unique citation keys/DOIs, publication status and venue fields, and common placeholder/encoding errors.
+`python bin/validate_site.py` passes for 18 active content files, 15 published papers, and four preprints. It checks front matter, layout/include references, route uniqueness, navigation order, required assets, balanced BibTeX fields, unique citation keys/DOIs, publication status and venue fields, and common placeholder/encoding errors.
 
 The checker validates DOI syntax and source structure; it does not make network requests or certify external link availability. The factual verification record is in `CONTENT_SOURCES.md`.
 
@@ -67,3 +67,9 @@ Removed the separate Funding & projects section, its include, and its empty data
 The existing homepage hero now pairs the introduction with a small inline SVG network illustration. The palette, typography, card hierarchy, navigation branding, whitespace, and calls to action were refined within the same Sass and Liquid components. The illustration is static, responsive, labeled for assistive technology, and adds no scripts, raster downloads, or fonts. Light and dark theme colors use the existing tokens. No browser visual review is claimed because no browser surface is available.
 
 The footer was simplified at the owner's request to **© Networked Systems Laboratory**. Individual names, year, hosting/theme credits, and other footer details are removed. The LICENSE and README retain the original source attribution.
+
+## October 25 content and search correction
+
+The updated owner-supplied `People_bio.txt` changes Hemanta Ban's interests, UT Knoxville master's education, and RWTH Aachen experience. The other supplied biographies still match. The publication-search include now wraps its input in an HTML block, preventing its indentation from producing visible code in Markdown. The build validator requires exactly one accessible search input outside code blocks and rejects visible input markup.
+
+The formation-control entry is now an ACC 2026 paper with pages 1398-1403, the IEEE DOI, and the supplied publisher link. It appears once under Published papers; news and research links use the conference record. The author-maintained arXiv record confirms the conference, pages, DOI, and IEEE document number. Current totals are 15 published papers and four preprints. Fresh build results for this revision will supersede the older run/package details above.
