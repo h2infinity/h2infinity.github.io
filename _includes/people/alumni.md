@@ -1,6 +1,6 @@
 ## Alumni
 
-### Yichao Wang
+### Yichao Wang - Ph.D., 2025
 
 Yichao Wang's research at the University of Tennessee, Knoxville, addressed wide-area power-system damping control, network communication delays, and stability under intermittent information transmission. He collaborated with Fatima Taousser, Seddik M. Djouadi, and Kevin Tomsovic. His professional experience includes Dominion Energy.
 
