@@ -2,7 +2,7 @@
 
 Academic laboratory website led by Professor Seddik M. Djouadi at the University of Tennessee, Knoxville. Customized from the existing [al-folio](https://github.com/alshedivat/al-folio) Jekyll template; its layouts, components, styles, dark mode, navigation, and bibliography system are retained.
 
-**Start editing:** [START_HERE.md](START_HERE.md) links directly to every content file. People biographies are in [\_includes/people/](_includes/people/), the roster is in [\_data/people.yml](_data/people.yml), and funded-project records belong in [\_data/funded_projects.yml](_data/funded_projects.yml).
+**Start editing:** [START_HERE.md](START_HERE.md) links directly to every content file. People biographies are in [\_includes/people/](_includes/people/), the roster is in [\_data/people.yml](_data/people.yml), and Home/Projects research cards share the theme files in [\_projects/](_projects/).
 
 ## Content
 

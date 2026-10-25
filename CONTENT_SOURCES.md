@@ -56,10 +56,10 @@ The page now distinguishes laboratory leadership, faculty, the five current grad
 
 ## Other content
 
-### Funded-project inventory
+### Research-theme evidence
 
-The owner requested all funded projects from [Professor Djouadi's UTK grants profile](https://faculty.utk.edu/Seddik.Djouadi/grants). The supplied page returned an empty readable body through web retrieval, including alternate case/query/trailing-slash attempts. Direct shell retrieval was denied with Windows socket error 10013, and the in-app browser was unavailable. Other professors' records and generic research themes were not substituted for this profile's actual funded records. A request for the profile's funded-record text was sent to the owner.
+The owner asked for funded-project topics from [Professor Djouadi's UTK grants profile](https://faculty.utk.edu/Seddik.Djouadi/grants?favouritesFirst=true&perPage=25&sort=dateDesc&startFrom=0) to inform the research themes, and explicitly removed the separate Funding & projects section. The supplied detailed URL remained inaccessible through web retrieval. No browser was connected. A request for readable funded-project titles was sent to the owner; no new award-derived topics are claimed as verified in this revision.
 
-The Projects tab links to the official grants profile. `_data/funded_projects.yml` provides a reusable structured award list, but its `projects` array is empty and its coverage remains `source-unavailable`. There is no claim of complete funded-project coverage. Only records explicitly labeled Funded should be added; Proposed and Not Funded entries must be excluded. The existing five research-theme pages remain separate from the funded-award list and make no current-funding claims.
+The former funding include and empty award-list data file were removed. Home and Projects now share the five existing, publication-backed theme records in `_projects/`; each card leads to its detailed theme page. The themes are not presented as an exhaustive grant inventory or as proof of active funding. Once the official funded-project topics are available, revise or extend these theme pages directly, maintaining source traceability without introducing an awards section.
 
 Teaching is explicitly historical and linked to the [faculty course page](https://web.eecs.utk.edu/~mdjouadi/courses.html). Unsupported old news about a 2018 award and an invited acceptance was replaced with dated publication/preprint announcements. Template blog posts, book reviews, example projects, sample resume/PDF, and duplicate decade publication lists were removed from the repository, together with their unused sample media and redundant archive copies.

@@ -1,7 +1,6 @@
 """Validate laboratory source content, and optionally a fresh Jekyll build."""
 
 import argparse
-from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 import re
@@ -112,16 +111,6 @@ def source_check():
         if member.get("image"):
             assert member.get("alt"), f"Missing portrait alt text: {member['name']}"
             assert (ROOT / "assets/img" / member["image"]).is_file()
-    grants = yaml.safe_load((ROOT / "_data/funded_projects.yml").read_text(encoding="utf-8"))
-    awards = grants["projects"]
-    assert len({award["id"] for award in awards}) == len(awards), "Duplicate award ID"
-    for award in awards:
-        for field in ("id", "title", "sponsor", "source_url", "source_status"):
-            assert award.get(field), f"Missing grant field: {field}"
-        assert award["source_status"] == "Funded", f"Unfunded record: {award['id']}"
-        assert urlsplit(award["source_url"]).scheme == "https"
-        if award.get("start_date") and award.get("end_date"):
-            assert date.fromisoformat(str(award["start_date"])) <= date.fromisoformat(str(award["end_date"]))
     nav = sorted((frontmatter(p)["nav_order"], frontmatter(p)["title"]) for p in paths if frontmatter(p).get("nav"))
     assert len({n for n, _ in nav}) == len(nav), "Duplicate navigation order"
     preprints = sum(f["publication_status"] == "preprint" for _, f in entries.values())
@@ -198,11 +187,11 @@ def built_check(destination, baseurl):
         for member in group["members"]:
             assert member["id"] in parsed[destination / "people/index.html"].ids, f"Missing person: {member['name']}"
     assert "Electrical Engineering" in people and "alumni" in people
-    grants = yaml.safe_load((ROOT / "_data/funded_projects.yml").read_text(encoding="utf-8"))
     projects = (destination / "projects/index.html").read_text(encoding="utf-8")
-    assert grants["source_url"] in projects
-    for grant in grants["projects"]:
-        assert grant["id"] in parsed[destination / "projects/index.html"].ids
+    assert "funded-projects" not in projects and "Funding &amp; projects" not in projects, "Removed funding section was rendered"
+    for file in (ROOT / "_projects").glob("*.md"):
+        title = frontmatter(file)["title"]
+        assert title in projects and title in home, f"Research theme omitted: {title}"
     home_page = parsed[destination / "index.html"]
     for resource in home_page.scripts + home_page.styles:
         assert not any(unused in resource for unused in ("mdb.min", "mathjax", "polyfill", "masonry", "medium-zoom", "fonts.googleapis")), f"Unused home dependency: {resource}"

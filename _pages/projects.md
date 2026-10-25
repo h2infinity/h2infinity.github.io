@@ -2,17 +2,17 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: Sponsored research, laboratory projects, and the systems that connect them.
+description: Models, methods, and applications for interconnected dynamical systems.
 nav: true
 nav_order: 4
 horizontal: false
 ---
 
-{% include funded_projects.liquid %}
-
-## Research themes
-
-Representative contributions across control, computation, and interconnected systems. Theme pages describe published research and do not imply current funding.
+<div class="research-intro">
+  <p class="section-eyebrow">Our research themes</p>
+  <p>From the dynamics of individual systems to the behavior of large networks, we develop models and control methods that connect mathematical ideas with engineering applications.</p>
+  <a class="text-link" href="{{ '/research/' | relative_url }}">Explore the research overview <span aria-hidden="true">↗</span></a>
+</div>
 
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}

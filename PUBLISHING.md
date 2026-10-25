@@ -13,7 +13,7 @@ The existing repository was renamed successfully (repository ID `1200937480`); n
 
 ## Edit and deploy
 
-1. Use [START_HERE.md](START_HERE.md) to find the content file. Edit Markdown biographies, the YAML roster or grant list, BibTeX publications, or dated news as appropriate.
+1. Use [START_HERE.md](START_HERE.md) to find the content file. Edit Markdown biographies, the YAML roster or Markdown research themes, BibTeX publications, or dated news as appropriate.
 2. Commit changes to `main`. **Actions > Deploy site** validates source, builds the production Jekyll site, checks generated routes and links, and deploys after those checks pass. Pull requests build without publishing.
 3. To rebuild without a content change, use **Actions > Deploy site > Run workflow** on `main`.
 4. Confirm both the build and deployment jobs succeed. Inspect the public home, research, people, publications, projects, teaching, news, and contact pages at desktop and mobile widths.

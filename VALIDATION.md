@@ -56,6 +56,14 @@ The presentation uses existing colors with a restrained warm accent, flexible ca
 
 Default pages no longer request Material Design CSS/JS, external web fonts, MathJax/polyfills, Masonry, zoom, progress-bar, or Jupyter scripts. Bootstrap and the existing navigation/dark-mode/bibliography behavior remain. Syntax styles and copy-code helpers are loaded on code pages; optional math and academic icon assets can be requested per page. Dormant extended Sass modules remain available behind `enable_extended_styles`.
 
-The source validator now checks roster/biography consistency, award status and date structure, rendered member/award IDs, the skip target, and absence of unused default dependencies. GitHub Actions reports default-page resource counts and generated CSS size. Source and formatting checks pass locally; a fresh production build validates the revised output before deployment. Browser visual checks remain unavailable in this session, so appearance at specific viewport sizes and interactive behavior are not claimed as visually verified.
+The source validator now checks roster/biography consistency, rendered member IDs and shared research-theme inclusion, the skip target, and absence of unused default dependencies. GitHub Actions reports default-page resource counts and generated CSS size. Source and formatting checks pass locally; a fresh production build validates the revised output before deployment. Browser visual checks remain unavailable in this session, so appearance at specific viewport sizes and interactive behavior are not claimed as visually verified.
 
-The full funded-project inventory remains incomplete: the supplied UTK grants page exposed no readable records. Its official link and a structured, documented award file are provided; no grant details were invented. See `CONTENT_SOURCES.md` for the access record.
+The supplied UTK grants page exposed no readable records. At the owner's correction, the separate funding section and award data file have been removed. Grant-derived research-theme changes remain pending readable project topics; no details have been invented. See `CONTENT_SOURCES.md` for the access record.
+
+## Research-theme presentation refinement
+
+Removed the separate Funding & projects section, its include, and its empty data file. Home and Projects render cards from the same existing `_projects/` collection, keeping all five detailed page routes intact. The validator checks that every theme appears on both pages and that the removed funding section is absent.
+
+The existing homepage hero now pairs the introduction with a small inline SVG network illustration. The palette, typography, card hierarchy, navigation branding, whitespace, and calls to action were refined within the same Sass and Liquid components. The illustration is static, responsive, labeled for assistive technology, and adds no scripts, raster downloads, or fonts. Light and dark theme colors use the existing tokens. No browser visual review is claimed because no browser surface is available.
+
+The footer was simplified at the owner's request to **© Networked Systems Laboratory**. Individual names, year, hosting/theme credits, and other footer details are removed. The LICENSE and README retain the original source attribution.

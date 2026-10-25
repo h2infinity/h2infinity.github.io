@@ -9,7 +9,6 @@ The site uses the existing Jekyll/al-folio template. Most content changes requir
 | People names, roles, order, groups  | [\_data/people.yml](_data/people.yml)                                                                |
 | Individual biographies              | [\_includes/people/](_includes/people/) - one named Markdown file per person                         |
 | Alumni and historical affiliations  | [\_includes/people/alumni.md](_includes/people/alumni.md)                                            |
-| Funded projects                     | [\_data/funded_projects.yml](_data/funded_projects.yml)                                              |
 | Research-theme project pages        | [\_projects/](_projects/)                                                                            |
 | Research overview                   | [\_pages/research.md](_pages/research.md)                                                            |
 | Publications                        | [\_bibliography/papers.bib](_bibliography/papers.bib)                                                |
@@ -25,13 +24,15 @@ Edit a person's named Markdown file under `_includes/people/`. The paragraph bef
 
 Names, degree fields, and appointments belong in `_data/people.yml`. Update both the roster role and the biography when an appointment changes. Current students and alumni remain separate. The latest laboratory-provided `People_bio.txt` was used for this revision; Hemanta Ban is listed in Electrical Engineering.
 
-## Funded projects
+## Research themes
 
-Edit `_data/funded_projects.yml`. Add one entry per official **Funded** record; do not include **Proposed** or **Not Funded** records. Quote dates as `YYYY-MM-DD`. Fields are `id` (unique lowercase slug), `title`, `sponsor`, `source_status: Funded`, and `source_url`; include `start_date`, `end_date`, `award_id`, or `description` only when verified. Entries are sorted by recorded start date, newest first. Historical award dates do not mean a project is still active. No amounts or investigator roles are inferred.
+Edit a Markdown file under `_projects/`. Its `title`, `description`, and `importance` front matter determine the research cards on both Home and Projects, so there is one source for their labels and summaries. The Markdown body is the detailed theme page. Add a new file in the same format to add another theme; retain established routes when changing existing files. The longer research overview is in `_pages/research.md`.
 
-The supplied UTK grants profile did not expose readable award records to this session. Its official link is displayed on Projects, but `projects: []` is deliberately empty and coverage is marked `source-unavailable`. This is not a verified complete grant inventory. Add the supplied official records here when available, then mark coverage `complete` only after every funded record and every source page has been reviewed.
+Use verified funded-project topics to revise these research themes rather than adding a separate funding or awards section. The supplied UTK grants page, including the detailed query URL, remained unreadable through this session's tools. New grant-derived topics must wait for readable official records or an owner-provided list; the displayed themes currently describe the already sourced research.
 
 ## Layout and loading
+
+The site footer shows only **© Networked Systems Laboratory**. Its markup is in `_includes/footer.liquid`, using the laboratory title from `_config.yml`. Theme licensing and source attribution remain in the repository's LICENSE and README.
 
 The existing Bootstrap grid, navigation, bibliography, dark mode, and Jekyll layouts remain. System fonts avoid external font downloads. Material Design assets, math rendering, image zoom, Masonry, and scrolling animations are off by default. Set `math: true`, `code: true`, or `academic_icons: true` in a page's front matter when it needs those features. Optional legacy styles can be enabled with `enable_extended_styles` in `_config.yml`.
 

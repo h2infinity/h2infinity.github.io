@@ -56,7 +56,12 @@
   }
 
   .navbar-brand {
-    color: var(--global-text-color);
+    color: var(--global-theme-color);
+    font-weight: 650 !important;
+    font-size: 1.05rem;
+    letter-spacing: -0.025em;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--lab-accent);
   }
 
   .navbar-nav .nav-item .nav-link {

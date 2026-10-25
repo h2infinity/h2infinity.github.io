@@ -1,29 +1,20 @@
 <section class="home-section">
-  <h2>Research Areas</h2>
+  <div class="section-heading">
+    <div>
+      <p class="section-eyebrow">Ideas into systems</p>
+      <h2>Research themes</h2>
+    </div>
+    <a class="text-link" href="{{ '/projects/' | relative_url }}">Explore all themes <span aria-hidden="true">&rarr;</span></a>
+  </div>
   <div class="research-grid">
-    <article class="research-card featured">
-      <h3>Distributed and Decentralized Control</h3>
-      <p>Optimal control for spatially distributed systems and decision-making with delayed or partial information.</p>
-    </article>
-    <article class="research-card featured">
-      <h3>Nonlinear Model Reduction</h3>
-      <p>Cluster-based, manifold, and isostable methods for modeling and controlling high-dimensional nonlinear dynamics.</p>
-    </article>
-    <article class="research-card">
-      <h3>Power and Energy Systems</h3>
-      <p>Frequency safety, graph-based security assessment, and grid-interactive buildings.</p>
-    </article>
-    <article class="research-card">
-      <h3>Multi-Agent Systems</h3>
-      <p>Distributed formation control, resource allocation, and coordination using local information.</p>
-    </article>
-    <article class="research-card">
-      <h3>Networked Sensing and Control</h3>
-      <p>Estimation, communication delays, and data-enabled monitoring of connected engineering systems.</p>
-    </article>
-    <article class="research-card">
-      <h3>Biological Dynamics</h3>
-      <p>Stability regions and uncertainty analysis for mathematical models of biological processes.</p>
-    </article>
+    {% assign themes = site.projects | sort: 'importance' %}
+    {% for theme in themes %}
+      <a class="research-card" href="{{ theme.url | relative_url }}">
+        <span class="theme-index" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
+        <h3>{{ theme.title }}</h3>
+        <p>{{ theme.description }}</p>
+        <span class="theme-more">Explore theme <span aria-hidden="true">&rarr;</span></span>
+      </a>
+    {% endfor %}
   </div>
 </section>

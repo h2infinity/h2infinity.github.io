@@ -1,8 +1,0 @@
-# Add one record per award confirmed as Funded in the official UTK profile.
-# Fields: id, title, sponsor, start_date (YYYY-MM-DD), end_date (YYYY-MM-DD),
-# source_url, source_status: Funded. Optional: award_id, description.
-# Do not add Proposed or Not Funded records or infer missing dates/amounts.
-source_url: https://faculty.utk.edu/Seddik.Djouadi/grants
-checked_on: "2026-10-24"
-coverage: source-unavailable
-projects: []

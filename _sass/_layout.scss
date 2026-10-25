@@ -75,13 +75,15 @@ body.sticky-bottom-footer {
 // Responsive refinements within the existing Bootstrap/Jekyll template.
 
 :root {
-  --lab-surface: #f5f8fa;
+  --lab-surface: #f1f5f5;
+  --lab-secondary: #246c68;
   --lab-accent: #a55b18;
   --lab-radius: 0.8rem;
 }
 
 html[data-theme="dark"] {
-  --lab-surface: #252c32;
+  --lab-surface: #252e35;
+  --lab-secondary: #83c7bc;
   --lab-accent: #efb477;
 }
 
@@ -144,6 +146,30 @@ input:focus-visible {
   }
 }
 
+.post-home .post-header {
+  border-bottom: none;
+  margin-bottom: 1.8rem;
+  padding-bottom: 0;
+
+  .post-title {
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+}
+
+.research-intro {
+  max-width: 75ch;
+  margin-bottom: 2.5rem;
+  padding-left: 1.3rem;
+  border-left: 3px solid var(--lab-accent);
+
+  > p:not(.section-eyebrow) {
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    line-height: 1.6;
+  }
+}
+
 .page-jumps {
   display: flex;
   flex-wrap: wrap;
@@ -196,23 +222,17 @@ input:focus-visible {
   text-underline-offset: 0.2em;
 }
 
-.funded-projects {
-  margin-bottom: 2.75rem;
-}
-
 .content-note {
   font-size: 0.9rem;
   color: var(--global-text-color-light);
 }
 
-.grant-grid,
 .people-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
   gap: 1rem;
 }
 
-.grant-card,
 .member {
   min-width: 0;
   padding: clamp(1.1rem, 2.5vw, 1.65rem);
@@ -227,30 +247,6 @@ input:focus-visible {
 
   p:last-child {
     margin-bottom: 0;
-  }
-}
-
-.grant-card {
-  border-top: 3px solid var(--lab-accent);
-
-  .grant-status {
-    margin-bottom: 0.7rem;
-    color: var(--lab-accent);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-  }
-
-  .grant-sponsor {
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-
-  .grant-period,
-  .grant-id {
-    font-size: 0.86rem;
-    color: var(--global-text-color-light);
   }
 }
 
