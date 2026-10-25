@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Stochastic Diffusion and Adaptive Estimation for Wireless Networked Systems
-description: Time-varying stochastic channel models for control and estimation over wireless links.
+title: Decentralized and Networked Control
+description: Decision-making with limited information and communication.
 importance: 2
 category: research
 ---
 
-This project develops time-varying random models for wireless channels in networked control systems, including jump-diffusion models and stochastic differential-equation formulations.
+Research on distributed control considers spatially invariant systems and stochastic teams whose components have delayed or partial information. Recent preprints study private and common information states for dynamic programming.
 
-The work combines real-time estimation, identification, and prediction methods to improve performance in settings with packet drops, delays, and fading.
+[Distributed optimal control (CDC 2025)](https://doi.org/10.1109/CDC57313.2025.11312577) - [Decentralized team equilibrium (2026 preprint)](https://arxiv.org/abs/2605.27645)
 
-Target applications include smart grids, wireless sensor networks, and mission-critical communication systems.
+[All research themes]({{ "/research/" | relative_url }})

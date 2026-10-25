@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Invited IEEE CDC paper accepted
-date: 2018-12-20 13:15:00-0500
+title: Multi-agent formation-control preprint
+date: 2026-05-01 20:00:00-0400
 inline: true
 related_posts: false
 ---
 
-Invited paper accepted at IEEE CDC on optimal distributed control of spatially invariant time-varying linear systems.
+Hemanta Ban, Seddik M. Djouadi, and Kevin Tomsovic's [arXiv preprint](https://arxiv.org/abs/2605.01161) studies distributed formation control using attraction-repulsion potentials.

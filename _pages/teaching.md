@@ -1,15 +1,13 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Courses and instructional activities.
+title: Teaching
+description: Selected courses previously taught by Professor Seddik M. Djouadi.
 nav: true
-nav_order: 4
+nav_order: 5
 ---
 
-I have taught undergraduate and graduate courses in control, systems, and probability, with emphasis on both theoretical foundations and engineering applications.
-
-## Selected Courses
+Professor Djouadi's teaching covers systems, control, and probability. The following courses appear on his [faculty course page](https://web.eecs.utk.edu/~mdjouadi/courses.html); this is a historical teaching list, not a current semester schedule.
 
 - ECE 613: Nonlinear Systems
 - ECE 511: Linear Systems Theory
@@ -19,6 +17,4 @@ I have taught undergraduate and graduate courses in control, systems, and probab
 - ECE 400 Senior Design: Modeling, Control, and Implementation of a Quad Rotor Helicopter
 - ECE 400 Senior Design: Android-Based Graphical User Interface for Control
 
-## Teaching Approach
-
-My teaching integrates mathematical rigor with project-based problem solving. In senior design and graduate courses, students work on realistic control and estimation problems motivated by cyber-physical systems, energy systems, and data-driven applications.
+Students should use UTK's official registration system for current offerings and contact the instructor for course materials.

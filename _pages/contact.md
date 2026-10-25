@@ -1,25 +1,27 @@
 ---
 layout: page
-title: contact
+title: Contact
 permalink: /contact/
-description: Contact information and collaboration inquiries.
+description: Contact the Networked Systems Laboratory at UT Knoxville.
 nav: true
-nav_order: 6
+nav_order: 8
 ---
 
-## Contact
+## Networked Systems Laboratory
+
+Professor Seddik M. Djouadi  
+Min H. Kao Department of Electrical Engineering and Computer Science  
+University of Tennessee, Knoxville
 
 - Email: [mdjouadi@utk.edu](mailto:mdjouadi@utk.edu)
-- Phone: +1 (865) 974-5447
-- Fax: +1 (865) 974-5483
+- Phone: [+1 (865) 974-5447](tel:+18659745447)
+- Office: Min H. Kao Building, Room 640
 
-## Address
-
-Department of Electrical Engineering and Computer Science  
-University of Tennessee, Knoxville  
-MK640, 1520 Middle Drive  
+1520 Middle Drive  
 Knoxville, TN 37996
 
-## Collaborations
+## Research inquiries
 
-I welcome inquiries regarding graduate research, collaborative proposals, and interdisciplinary projects in control, power systems, and cyber-physical systems.
+For graduate research and collaboration inquiries, contact Professor Djouadi with a brief description of your interests and relevant background. Current openings and appointment availability should be confirmed directly with the laboratory.
+
+[UTK faculty directory](https://eecs.utk.edu/people/seddik-djouadi/) - [UTK graduate programs](https://eecs.utk.edu/graduate/)

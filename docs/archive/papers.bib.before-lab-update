@@ -1,0 +1,187 @@
+---
+---
+
+@article{zhang2019safety,
+  title    = {Set theory-based safety supervisory control for wind turbines to ensure adequate frequency response},
+  author   = {Zhang, Yichen and Raoufat, M. E. and Tomsovic, Kevin and Djouadi, S. M.},
+  journal  = {IEEE Transactions on Power Systems},
+  volume   = {34},
+  number   = {1},
+  year     = {2019},
+  selected = {true}
+}
+
+@article{bara2018modelfree,
+  title    = {Towards a model-free data-driven control of acute inflammations: A mathematical perspective},
+  author   = {Bara, O. and Fliess, M. and Join, C. and Day, J. and Djouadi, S. M.},
+  journal  = {Journal of Theoretical Biology},
+  year     = {2018},
+  selected = {true}
+}
+
+@article{zhang2018dieselwind,
+  title    = {Provision of guaranteed inertial response in diesel-wind systems using model reference control},
+  author   = {Zhang, Yichen and Melin, Alex and Djouadi, S. M. and Olama, M.},
+  journal  = {IEEE Transactions on Power Systems},
+  volume   = {33},
+  number   = {6},
+  pages    = {6557--6558},
+  year     = {2018}
+}
+
+@article{raoufat2016virtual,
+  title    = {Virtual actuators for wide-area damping control of power systems},
+  author   = {Raoufat, M. E. and Tomsovic, Kevin and Djouadi, S. M.},
+  journal  = {IEEE Transactions on Power Systems},
+  volume   = {31},
+  number   = {6},
+  pages    = {4703--4711},
+  year     = {2016}
+}
+
+@article{djouadi2015gap,
+  title    = {On robustness in the gap metric and coprime factor uncertainty for LTV systems},
+  author   = {Djouadi, S. M.},
+  journal  = {Systems and Control Letters},
+  volume   = {20},
+  pages    = {16--22},
+  year     = {2015}
+}
+
+@article{shi2015poweraware,
+  title    = {Power aware performance management of virtualized enterprise servers via robust adaptive control},
+  author   = {Shi, X. and Briere, C. A. and Djouadi, S. M. and Wang, Y. and Feng, Y.},
+  journal  = {Cluster Computing},
+  volume   = {18},
+  number   = {1},
+  pages    = {419--433},
+  year     = {2015}
+}
+
+@article{jin2014semidefinite,
+  title    = {Semi-definite programming for power output control in wind energy conversion systems},
+  author   = {Jin, Z. and Ma, X. and Li, F. and Djouadi, S. M.},
+  journal  = {IEEE Transactions on Sustainable Energy},
+  volume   = {5},
+  number   = {2},
+  pages    = {466--475},
+  year     = {2014}
+}
+
+@article{ma2014lips,
+  title    = {LIPS: Link prediction as a service for data aggregation applications},
+  author   = {Ma, X. and Liao, J. and Djouadi, S. M. and Cao, Q.},
+  journal  = {Ad Hoc Networks},
+  volume   = {19},
+  pages    = {43--58},
+  year     = {2014}
+}
+
+@article{djouadi2012semimarkov,
+  title    = {State estimation over a semi-Markov model based cognitive radio system},
+  author   = {Ma, X. and Djouadi, S. M. and Li, H.},
+  journal  = {IEEE Transactions on Wireless Communications},
+  volume   = {11},
+  number   = {7},
+  pages    = {2391--2401},
+  year     = {2012}
+}
+
+@article{ma2011bernoulli,
+  title    = {Optimal estimation with Bernoulli packet dropout},
+  author   = {Ma, X. and Djouadi, S. M. and Li, H. and Charalambous, C. D.},
+  journal  = {IEEE Signal Processing Letters},
+  volume   = {18},
+  number   = {6},
+  pages    = {359--362},
+  year     = {2011},
+  selected = {true}
+}
+
+@article{djouadi2010timevarying,
+  title    = {Time-varying optimal disturbance minimization in presence of plant uncertainty},
+  author   = {Djouadi, S. M. and Charalambous, C. D.},
+  journal  = {SIAM Journal on Control and Optimization},
+  volume   = {48},
+  number   = {5},
+  pages    = {3354--3367},
+  year     = {2010}
+}
+
+@article{sun2009robust,
+  title    = {Robust stabilization over communication channels in the presence of unstructured uncertainty},
+  author   = {Sun, J. and Djouadi, S. M.},
+  journal  = {IEEE Transactions on Automatic Control},
+  volume   = {54},
+  number   = {4},
+  pages    = {830--934},
+  year     = {2009}
+}
+
+@article{djouadi2008empirical,
+  title    = {Empirical reduced-order modeling for boundary feedback flow control},
+  author   = {Djouadi, S. M. and Camphouse, R. C. and Myatt, J. H.},
+  journal  = {Journal of Control Science and Engineering},
+  year     = {2008},
+  doi      = {10.1155/2008/154956},
+  selected = {true}
+}
+
+@article{djouadi2008twoblock,
+  title    = {Duality theory of the optimal two-block H-infinity problem},
+  author   = {Djouadi, S. M. and Birdwell, J. D.},
+  journal  = {International Journal of Robust and Nonlinear Control},
+  volume   = {18},
+  number   = {12},
+  pages    = {1302--1316},
+  year     = {2008}
+}
+
+@article{djouadi2007gapmetric,
+  title    = {On the computation of the gap metric for LTV systems},
+  author   = {Djouadi, S. M. and Li, Y.},
+  journal  = {Systems and Control Letters},
+  volume   = {56},
+  number   = {11-12},
+  pages    = {753--758},
+  year     = {2007}
+}
+
+@article{olama2006stochastic,
+  title    = {Stochastic power control for time-varying long-term fading wireless networks},
+  author   = {Olama, M. M. and Djouadi, S. M. and Charalambous, C. D.},
+  journal  = {EURASIP Journal on Applied Signal Processing},
+  volume   = {2006},
+  pages    = {1--13},
+  year     = {2006}
+}
+
+@article{charalambous2005stochastic,
+  title    = {Stochastic power control for wireless networks via SDEs: Probabilistic QoS measures},
+  author   = {Charalambous, C. D. and Djouadi, S. M. and Denic, S. Z.},
+  journal  = {IEEE Transactions on Information Theory},
+  volume   = {51},
+  number   = {12},
+  pages    = {4396--4401},
+  year     = {2005}
+}
+
+@article{djouadi2004twodisk,
+  title    = {Operator theoretic approach to the optimal two-disk problem},
+  author   = {Djouadi, S. M.},
+  journal  = {IEEE Transactions on Automatic Control},
+  volume   = {49},
+  number   = {10},
+  pages    = {1607--1622},
+  year     = {2004},
+  selected = {true}
+}
+
+@article{djouadi2003disturbance,
+  title    = {Optimal robust disturbance attenuation for continuous time-varying systems},
+  author   = {Djouadi, S. M.},
+  journal  = {International Journal of Robust and Nonlinear Control},
+  volume   = {13},
+  pages    = {1181--1193},
+  year     = {2003}
+}

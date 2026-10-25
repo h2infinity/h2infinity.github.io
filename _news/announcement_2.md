@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Selected as outstanding reviewer by Automatica
-date: 2018-06-01 10:30:00-0400
-inline: false
+title: New preprint on decentralized team equilibrium
+date: 2026-05-26 09:00:00-0400
+inline: true
 related_posts: false
 ---
 
-I was recognized by the journal _Automatica_ as an outstanding reviewer, an honor awarded to a small fraction of the reviewer pool.
-
-This reflects sustained contributions to the controls community through both research and scholarly service.
+A [new arXiv preprint](https://arxiv.org/abs/2605.27645) by Charalambos D. Charalambous, Umarbek Guvercin, and Seddik Djouadi studies private and common information states for decentralized decision-making with delayed sharing.

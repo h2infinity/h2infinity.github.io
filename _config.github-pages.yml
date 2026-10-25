@@ -3,7 +3,7 @@
 #   bundle exec jekyll serve --config _config.yml,_config.github-pages.yml
 #   bundle exec jekyll build --config _config.yml,_config.github-pages.yml
 
-url: https://hban29.github.io
+url: https://h2infinity.github.io
 baseurl:
 
 footer_text: >

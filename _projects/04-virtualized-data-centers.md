@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Power-Efficient Autonomic Management for Virtualized Data Centers
-description: Stochastic and hierarchical control for server power-performance optimization.
+title: Grid-Interactive Buildings
+description: Data-enabled building control under communication constraints.
 importance: 4
 category: research
 ---
 
-This project develops an autonomic computing and control framework for virtualized environments with performance guarantees under dynamic and bursty workloads.
+Recent work numerically investigates the effect of communication delays on model-free coordination of thermostatically controlled building loads.
 
-The research includes robust resource-control laws, stochastic coordination of power and performance, and distributed control at the server-cluster level.
+[Model-free building control (PESGM 2025)](https://doi.org/10.1109/PESGM52009.2025.11225433)
 
-The objective is to minimize energy consumption while preserving quality-of-service constraints.
+[All research themes]({{ "/research/" | relative_url }})

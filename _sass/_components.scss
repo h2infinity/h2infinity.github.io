@@ -199,7 +199,9 @@ ul.task-list input[type="checkbox"] {
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease;
 
     &:hover {
       transform: translateY(-4px);
@@ -423,7 +425,9 @@ ul.task-list input[type="checkbox"] {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
 
     &:hover {
       color: #fff;
@@ -494,7 +498,9 @@ ul.task-list input[type="checkbox"] {
   border-radius: 14px;
   padding: 0.95rem;
   background-color: var(--global-card-bg-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);

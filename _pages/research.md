@@ -1,47 +1,49 @@
 ---
 layout: page
-title: research
+title: Research
 permalink: /research/
-description: Research directions, projects, and funding.
+description: Research themes and recent contributions in networked systems and control.
 nav: true
 nav_order: 1
 ---
 
-My research spans areas ranging from robust control to wireless communication, model reduction for fluid flows and image processing, distributed control of networked systems, metric complexity theory, biological processes, power networks, energy efficient buildings, security, and power and performance management of virtualized web servers.
+We study modeling, estimation, and control of interconnected dynamical systems. Our work brings together control theory, optimization, and data-driven methods, with particular attention to uncertainty and limited information.
 
-Much of this work focuses on improving performance in the presence of modeling and disturbance uncertainties.
+## Distributed decision-making and multi-agent systems
 
-## Research Interests
+How can individual components coordinate when each has access to only part of the system? Recent work addresses spatially distributed optimal control, stochastic teams with delayed information sharing, and potential-based formation control.
 
-- Robust and distributed control
-- Information theory for uncertain channels
-- Modeling, estimation, and identification for wireless systems
-- Control of networked systems
-- Robust control of large power networks with high penetration of renewables
-- Model reduction and control of fluid flows
+- [Distributed H²-optimal control of spatially invariant systems (CDC 2025)](https://doi.org/10.1109/CDC57313.2025.11312577)
+- [Private and common information states for decentralized team equilibrium (2026 preprint)](https://arxiv.org/abs/2605.27645)
+- [Distributed attraction-repulsion potential for multi-agent formation control (2026 preprint)](https://arxiv.org/abs/2605.01161)
 
-## Major Project Themes
+## Data-driven nonlinear model reduction
 
-### Data-driven nonlinear model reduction and metric complexity
+Reduced-order models make high-dimensional dynamics more accessible to analysis and feedback control. Our recent work uses clustering, manifold geometry, and isostable coordinates to represent nonlinear fluid dynamics and design boundary controllers.
 
-This work develops reduced-order modeling methods for nonlinear PDE-governed systems, including geodesic-based approaches, metric complexity analysis, and stability-aware closure models for large-scale simulations and control design.
+- [Cluster-POD for boundary control of fluid flows (2026)](https://doi.org/10.1080/10618562.2026.2710921)
+- [Adaptive cluster-dynamic mode decomposition (ACC 2024)](https://par.nsf.gov/servlets/purl/10554490)
+- [Data-driven observable dynamics for an airfoil model (Physica D, 2024)](https://doi.org/10.1016/j.physd.2023.133941)
 
-### Stochastic diffusion and adaptive estimation for wireless networked systems
+## Power systems and grid-interactive buildings
 
-This research studies communication links as time-varying stochastic processes and builds real-time estimation and prediction methods for control over wireless channels under delay, packet loss, and uncertainty.
+We investigate frequency safety, security assessment, and the coordination of flexible building loads. Recent studies connect safety feedback, graph neural networks, and model-free control with renewable-rich energy systems.
 
-### Distributed control of large power networks
+- [Graph neural networks for power-system security assessment (2025)](https://doi.org/10.1016/j.epsr.2025.111972)
+- [Safety feedback for microgrid frequency performance (2025 issue)](https://doi.org/10.1002/rnc.7668)
+- [Model-free control of grid-interactive buildings under communication delays (PESGM 2025)](https://doi.org/10.1109/PESGM52009.2025.11225433)
 
-This effort combines control, communications, and computation for cyber-physical energy systems, including PDE/PdE-inspired modeling of disturbance propagation and communication-constrained controller design.
+## Networked sensing and robust control
 
-### Power-efficient autonomic management for virtualized data centers
+Communication limits and uncertain dynamics connect the laboratory's work in estimation, wireless systems, and feedback control. Recent collaborative work also investigates edge-based traffic monitoring; earlier work develops robust disturbance-rejection methods for time-varying systems.
 
-This project develops hierarchical and stochastic control frameworks to coordinate resource and power management in virtualized server environments while maintaining service-level guarantees.
+- [Edge AI-enhanced traffic monitoring (ICTD 2025)](https://doi.org/10.1061/9780784486191.038)
+- [Time-varying disturbance minimization under plant uncertainty (2010)](https://doi.org/10.1137/080720267)
 
-### Modeling and control of complex immune responses
+## Biological dynamics
 
-This interdisciplinary research develops nonlinear estimation and control tools for inflammatory immune-response models to support data-informed therapeutic decision making.
+Control-theoretic tools also help characterize nonlinear biological models. Recent collaborative research studies stability regions and parameter uncertainty in mathematical tumor models.
 
-## Research Support
+- [Chemo and immunotherapy effects on stability regions of tumor models (2024)](https://doi.org/10.1016/j.matcom.2024.03.029)
 
-Research has been supported by the National Science Foundation, the Air Force Office of Scientific Research, Oak Ridge National Laboratory, and the Tennessee Valley Authority.
+See [publications]({{ '/publications/' | relative_url }}) for authors and venues. Preprints are identified explicitly; research themes summarize the linked work and do not imply that historical projects or funding awards remain active.

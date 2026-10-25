@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Distributed Control of Large Power Networks
-description: Integrated control-communication-computation methods for resilient power-system dynamics.
+title: Power-System Safety and Security
+description: Frequency performance and graph-based assessment of energy systems.
 importance: 3
 category: research
 ---
 
-This project studies distributed modeling and control techniques for large power networks with communication constraints and disturbance propagation effects.
+Collaborative work investigates safety feedback for microgrid frequency performance and graph neural networks for assessing power-grid security.
 
-The framework includes partial-difference-equation-inspired dynamic models and communication-aware control synthesis to trade off system performance and infrastructure cost.
+[Safety feedback (2025 issue)](https://doi.org/10.1002/rnc.7668) - [Graph neural network security assessment (2025)](https://doi.org/10.1016/j.epsr.2025.111972)
 
-The research supports robust operation in modern cyber-physical power systems.
+[All research themes]({{ "/research/" | relative_url }})

@@ -1,14 +1,15 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Research themes and applications from the Networked Systems Laboratory.
 nav: true
-nav_order: 3
+nav_order: 4
 horizontal: false
 ---
 
-<!-- pages/projects.md -->
+Research themes and representative contributions. These pages describe published work and do not imply active funding.
+
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->

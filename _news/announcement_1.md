@@ -1,9 +1,9 @@
 ---
 layout: post
-title: New IEEE Transactions on Power Systems paper
-date: 2019-01-15 09:00:00-0500
+title: Cluster-POD paper published in IJCFD
+date: 2026-08-10 09:00:00-0400
 inline: true
 related_posts: false
 ---
 
-New paper published in IEEE Transactions on Power Systems on safety supervisory control for wind turbines and frequency response.
+Tumin Wu, Dan Wilson, Seddik M. Djouadi, and Samir Sahyoun's [Cluster-POD paper](https://doi.org/10.1080/10618562.2026.2710921) was published online in _International Journal of Computational Fluid Dynamics_.

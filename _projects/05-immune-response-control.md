@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Modeling and Control of Complex Immune Responses
-description: Nonlinear estimation and control methods for inflammatory-response regulation.
+title: Biological Dynamics
+description: Stability and uncertainty in nonlinear biological models.
 importance: 5
 category: research
 ---
 
-This interdisciplinary project develops model-based and adaptive control methods for therapeutic intervention in complex inflammatory immune responses.
+Collaborative research estimates stability regions for mathematical tumor-growth models that incorporate chemo- and immunotherapy and examines sensitivity to uncertain model parameters.
 
-The work combines nonlinear dynamics, estimation, and control design to support data-informed treatment strategies.
+[Tumor-model stability regions (2024)](https://doi.org/10.1016/j.matcom.2024.03.029)
 
-Methods developed in this project extend beyond biomedicine to broader classes of nonlinear control systems.
+[All research themes]({{ "/research/" | relative_url }})

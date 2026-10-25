@@ -51,9 +51,16 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const updateInputField = () => {
-    const hashValue = decodeURIComponent(window.location.hash.substring(1)); // Remove the '#' character
-    document.getElementById("bibsearch").value = hashValue;
-    filterItems(hashValue);
+    let hashValue;
+    try {
+      hashValue = decodeURIComponent(window.location.hash.substring(1));
+    } catch {
+      hashValue = "";
+    }
+    // Section and citation anchors navigate within the page without filtering out the papers.
+    const searchTerm = document.getElementById(hashValue) ? "" : hashValue;
+    document.getElementById("bibsearch").value = searchTerm;
+    filterItems(searchTerm.toLowerCase());
   };
 
   // Sensitive search. Only start searching if there's been no input for 300 ms
@@ -61,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("bibsearch").addEventListener("input", function () {
     clearTimeout(timeoutId); // Clear the previous timeout
     const searchTerm = this.value.toLowerCase();
-    timeoutId = setTimeout(filterItems(searchTerm), 300);
+    timeoutId = setTimeout(() => filterItems(searchTerm), 300);
   });
 
   window.addEventListener("hashchange", updateInputField); // Update the filter when the hash changes

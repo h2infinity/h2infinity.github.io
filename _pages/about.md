@@ -2,18 +2,8 @@
 layout: about
 title: Home
 permalink: /
-subtitle: Professor, Department of Electrical Engineering and Computer Science, University of Tennessee, Knoxville
-
-profile:
-  align: right
-  image: djouadi.jpg
-  width: 1368
-  height: 2100
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>MK640</p>
-    <p>1520 Middle Drive</p>
-    <p>Knoxville, TN 37996</p>
+subtitle: Systems, control, and computation · University of Tennessee, Knoxville
+description: Networked Systems Laboratory — research in robust and distributed control, nonlinear dynamics, and connected engineering systems.
 
 selected_papers: false # rendered in a custom homepage section below
 social: true # includes social icons at the bottom of the page
@@ -31,9 +21,9 @@ latest_posts:
 
 {% include home/hero.liquid %}
 
-Seddik M. Djouadi is a Professor in the Department of Electrical Engineering and Computer Science at the University of Tennessee, Knoxville. His research spans robust and distributed control, power networks with high renewable penetration, wireless networked systems, nonlinear model reduction, and interdisciplinary control applications in biology and cyber-physical systems.
+The **Networked Systems Laboratory**, led by [Professor Seddik M. Djouadi]({{ '/people/' | relative_url }}), studies how interconnected dynamical systems can be modeled, coordinated, and controlled under uncertainty. Based in the Min H. Kao Department of Electrical Engineering and Computer Science at the University of Tennessee, Knoxville, our work connects mathematical control theory with energy, communications, fluid dynamics, and autonomous systems.
 
-He received his Ph.D. in Electrical Engineering from McGill University in 1999, with earlier degrees from Ecole Polytechnique, University of Montreal, and Ecole Nationale Polytechnique in Algiers. His work emphasizes uncertainty-aware modeling and control with strong connections to practical systems in energy, communications, and computing.
+Our mission is to develop useful models and decision methods for systems whose components share limited information and face uncertain disturbances. Recent contributions include cluster-based reduced-order models, distributed optimal control, and learning methods for power-grid security assessment. Explore our [research]({{ '/research/' | relative_url }}) and [publications]({{ '/publications/' | relative_url }}) for the methods, applications, and supporting papers.
 
 {% include home/research_areas.liquid %}
 
