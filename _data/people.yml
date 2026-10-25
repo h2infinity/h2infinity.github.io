@@ -16,10 +16,10 @@ groups:
   - id: students
     title: Current graduate students
     members:
-      - id: hemanta-ban
-        name: Hemanta Ban
-        role: Ph.D. student, Electrical Engineering
-        bio: people/hemanta-ban.md
+      - id: burcum-eken
+        name: Burcum Eken
+        role: Ph.D. student, Computer Science
+        bio: people/burcum-eken.md
       - id: uzair-sharif-mughal
         name: Uzair Sharif Mughal
         role: Ph.D. student, Electrical Engineering
@@ -28,10 +28,10 @@ groups:
         name: Maria Batool
         role: Ph.D. student, Electrical Engineering
         bio: people/maria-batool.md
-      - id: burcum-eken
-        name: Burcum Eken
-        role: Ph.D. student, Computer Science
-        bio: people/burcum-eken.md
+      - id: hemanta-ban
+        name: Hemanta Ban
+        role: Ph.D. student, Electrical Engineering
+        bio: people/hemanta-ban.md
       - id: umarbek-guvercin
         name: Umarbek Guvercin
         role: Ph.D. student, Electrical Engineering
