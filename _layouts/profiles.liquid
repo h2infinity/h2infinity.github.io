@@ -1,43 +1,45 @@
 ---
 layout: page
 ---
-<div class="post">
-  <article>
-    {% if page.profiles %}
-      {% for profile in page.profiles %}
-        <hr>
-        <div class="profile float-{% if profile.align == 'left' %}left{% else %}right{% endif %}">
-          {% if profile.image %}
-            {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
-            {% if profile.image_circular %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-            {% else %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+<div class="people">
+  {{ content }}
+  <nav class="page-jumps" aria-label="People sections">
+    <a href="#faculty">Faculty</a>
+    <a href="#students">Current students</a>
+    <a href="#alumni">Alumni</a>
+  </nav>
+  {% for group in site.data.people.groups %}
+    <section class="people-group people-group--{{ group.id }}" aria-labelledby="{{ group.id }}">
+      <h2 id="{{ group.id }}">{{ group.title }}</h2>
+      <div class="people-grid">
+        {% for member in group.members %}
+          <article class="member{% if member.director %} member--director{% endif %}" id="{{ member.id }}">
+            {% if member.image %}
+              <div class="member-portrait">
+                {% assign portrait = member.image | prepend: 'assets/img/' %}
+                {% include figure.liquid path=portrait alt=member.alt width=1368 height=2100 sizes="(min-width: 768px) 180px, 140px" loading="eager" %}
+              </div>
             {% endif %}
-            {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
-            {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=profile.alt width=profile.width height=profile.height %}
-          {% endif %}
-          {% if profile.more_info %}
-            <div class="more-info">{{ profile.more_info }}</div>
-          {% endif %}
-        </div>
-
-        <div class="clearfix">
-          {% if profile.content %}
-            {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
-            {{ profile_content | markdownify }}
-          {% elsif profile.description %}
-            {{ profile.description | markdownify }}
-          {% else %}
-            {{ content }}
-          {% endif %}
-        </div>
-      {% endfor %}
-    {% endif %}
-
-    {% if content and content != '' %}
-      <hr>
-      <div class="clearfix">{{ content }}</div>
-    {% endif %}
-  </article>
+            <div class="member-main">
+              <h3>{{ member.name }}</h3>
+              <p class="member-role">{{ member.role }}</p>
+              {% capture biography %}{% include {{ member.bio }} %}{% endcapture %}
+              {% assign sections = biography | split: '<!--more-->' %}
+              {{ sections.first | markdownify }}
+              {% if sections.size > 1 %}
+                <details class="member-details">
+                  <summary>More about {{ member.name }}</summary>
+                  <div class="member-bio">{{ sections.last | markdownify }}</div>
+                </details>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+  <section class="alumni-section" aria-label="Alumni and historical affiliations">
+    {% capture alumni %}{% include people/alumni.md %}{% endcapture %}
+    {{ alumni | markdownify }}
+  </section>
 </div>

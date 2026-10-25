@@ -38,11 +38,11 @@ Publisher information was sometimes available through indexed publisher text whe
 
 ## People
 
-The subsequent People-page update uses the laboratory-provided [`People_bio.txt`](../People_bio.txt) as the source for current faculty and student roles, education, research interests, professional experience, awards, certifications, and profile links. This owner-supplied roster supersedes the initial uncertainty about present roles; these additions have not been independently reverified against external sources. Spelling and presentation were lightly standardized, including Thailand and Kuala Lumpur. The original text file is preserved unchanged.
+The People-page update uses the laboratory-provided `People_bio.txt` in the parent workspace as the source for current faculty and student roles, education, research interests, professional experience, awards, certifications, and profile links. This owner-supplied roster supersedes the initial uncertainty about present roles; these additions have not been independently reverified against external sources. Spelling and presentation were lightly standardized, including Thailand and Kuala Lumpur. The updated input is preserved unchanged (SHA-256 `5d3cc190782ec48e05a9f1350154cb45c406203ccb8a07b4d0e1594f4c618258`). Editable copies are split into named Markdown files under `_includes/people/`, with names and roles in `_data/people.yml`.
 
 - **Seddik M. Djouadi:** faculty biography from the UTK directory; laboratory leadership is owner-requested branding.
 - **Fatima Taousser:** Teaching Assistant Professor; education, research interests, UTK postdoctoral service from October 2016 to July 2021, and the ORNL project period from `People_bio.txt`. Her current employing institution is not specified in that file and is not inferred. She is listed under faculty, separately from current students.
-- **Hemanta Ban:** Ph.D. student in Computer Science; interests and four education entries from `People_bio.txt`.
+- **Hemanta Ban:** Ph.D. student in Electrical Engineering, as corrected in the updated `People_bio.txt`; interests and four education entries retained.
 - **Uzair Sharif Mughal:** Ph.D. student in Electrical Engineering; power-systems research focus and 2023 undergraduate degree from `People_bio.txt`.
 - **Maria Batool:** Ph.D. student in Electrical Engineering advised by Professor Djouadi; mathematics background, prior graph-theory research, and current distributed-control interests from `People_bio.txt`.
 - **Burcum Eken:** Ph.D. student in Computer Science; master's degree, security-engineering experience, research-group co-founding, three teaching awards, certifications, and GitHub/personal-site links from `People_bio.txt`.
@@ -55,5 +55,11 @@ The subsequent People-page update uses the laboratory-provided [`People_bio.txt`
 The page now distinguishes laboratory leadership, faculty, the five current graduate students supplied by the laboratory, alumni, and historical group affiliations. Earlier alumni records are retained separately from the new roster.
 
 ## Other content
+
+### Funded-project inventory
+
+The owner requested all funded projects from [Professor Djouadi's UTK grants profile](https://faculty.utk.edu/Seddik.Djouadi/grants). The supplied page returned an empty readable body through web retrieval, including alternate case/query/trailing-slash attempts. Direct shell retrieval was denied with Windows socket error 10013, and the in-app browser was unavailable. Other professors' records and generic research themes were not substituted for this profile's actual funded records. A request for the profile's funded-record text was sent to the owner.
+
+The Projects tab links to the official grants profile. `_data/funded_projects.yml` provides a reusable structured award list, but its `projects` array is empty and its coverage remains `source-unavailable`. There is no claim of complete funded-project coverage. Only records explicitly labeled Funded should be added; Proposed and Not Funded entries must be excluded. The existing five research-theme pages remain separate from the funded-award list and make no current-funding claims.
 
 Teaching is explicitly historical and linked to the [faculty course page](https://web.eecs.utk.edu/~mdjouadi/courses.html). Unsupported old news about a 2018 award and an invited acceptance was replaced with dated publication/preprint announcements. Template blog posts, book reviews, example projects, sample resume/PDF, and duplicate decade publication lists were removed from the repository, together with their unused sample media and redundant archive copies.

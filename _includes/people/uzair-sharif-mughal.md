@@ -1,0 +1,1 @@
+Uzair Sharif Mughal is a Ph.D. student in Electrical Engineering at the University of Tennessee, Knoxville. His research focuses on control theory applications, particularly power systems. He earned his undergraduate degree in Electrical (Power) Engineering from COMSATS University Islamabad, Pakistan, in 2023.

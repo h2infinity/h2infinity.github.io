@@ -1,0 +1,38 @@
+groups:
+  - id: faculty
+    title: Faculty
+    members:
+      - id: seddik-djouadi
+        name: Seddik M. Djouadi
+        role: Laboratory Director · Professor, UT Knoxville
+        bio: people/seddik-djouadi.md
+        image: djouadi.jpg
+        alt: Professor Seddik M. Djouadi
+        director: true
+      - id: fatima-taousser
+        name: Fatima Taousser
+        role: Teaching Assistant Professor
+        bio: people/fatima-taousser.md
+  - id: students
+    title: Current graduate students
+    members:
+      - id: hemanta-ban
+        name: Hemanta Ban
+        role: Ph.D. student, Electrical Engineering
+        bio: people/hemanta-ban.md
+      - id: uzair-sharif-mughal
+        name: Uzair Sharif Mughal
+        role: Ph.D. student, Electrical Engineering
+        bio: people/uzair-sharif-mughal.md
+      - id: maria-batool
+        name: Maria Batool
+        role: Ph.D. student, Electrical Engineering
+        bio: people/maria-batool.md
+      - id: burcum-eken
+        name: Burcum Eken
+        role: Ph.D. student, Computer Science
+        bio: people/burcum-eken.md
+      - id: umarbek-guvercin
+        name: Umarbek Guvercin
+        role: Ph.D. student, Electrical Engineering
+        bio: people/umarbek-guvercin.md

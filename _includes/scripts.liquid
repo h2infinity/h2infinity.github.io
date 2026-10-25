@@ -7,11 +7,13 @@
 
 <!-- Bootsrap & MDB scripts -->
 <script src="{{ '/assets/js/bootstrap.bundle.min.js' | relative_url }}"></script>
-<script
-  src="{{ site.third_party_libraries.mdb.url.js }}"
-  integrity="{{ site.third_party_libraries.mdb.integrity.js }}"
-  crossorigin="anonymous"
-></script>
+{% if site.enable_mdb %}
+  <script
+    src="{{ site.third_party_libraries.mdb.url.js }}"
+    integrity="{{ site.third_party_libraries.mdb.integrity.js }}"
+    crossorigin="anonymous"
+  ></script>
+{% endif %}
 
 {% if site.enable_masonry %}
   <!-- Masonry & imagesLoaded -->
@@ -182,10 +184,14 @@
 <!-- Load Common JS -->
 <script src="{{ '/assets/js/no_defer.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/common.js' | relative_url | bust_file_cache }}"></script>
-<script defer src="{{ '/assets/js/copy_code.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
+{% if page.code %}
+  <script defer src="{{ '/assets/js/copy_code.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
+{% endif %}
 
 <!-- Jupyter Open External Links New Tab -->
-<script defer src="{{ '/assets/js/jupyter_new_tab.js' | relative_url | bust_file_cache }}"></script>
+{% if page.jupyter %}
+  <script defer src="{{ '/assets/js/jupyter_new_tab.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}
 
 <!-- Badges -->
 {% if site.enable_publication_badges.altmetric %}
@@ -195,7 +201,7 @@
   <script async src="https://badge.dimensions.ai/badge.js"></script>
 {% endif %}
 
-{% if site.enable_math %}
+{% if site.enable_math or page.math %}
   <!-- MathJax -->
   <script
     defer

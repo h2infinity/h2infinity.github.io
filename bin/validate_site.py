@@ -1,6 +1,7 @@
 """Validate laboratory source content, and optionally a fresh Jekyll build."""
 
 import argparse
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 import re
@@ -102,8 +103,25 @@ def source_check():
         else:
             assert fields["publication_status"] == "published"
             assert fields.get("journal") or fields.get("booktitle"), f"Missing venue: {key}"
-    people = frontmatter(ROOT / "_pages/profiles.md")
-    assert people["profiles"][0]["alt"] == "Professor Seddik M. Djouadi"
+    roster = yaml.safe_load((ROOT / "_data/people.yml").read_text(encoding="utf-8"))
+    members = [member for group in roster["groups"] for member in group["members"]]
+    assert len({member["id"] for member in members}) == len(members), "Duplicate person ID"
+    for member in members:
+        assert (ROOT / "_includes" / member["bio"]).is_file(), f"Missing biography: {member['name']}"
+        assert "\ufffd" not in (ROOT / "_includes" / member["bio"]).read_text(encoding="utf-8")
+        if member.get("image"):
+            assert member.get("alt"), f"Missing portrait alt text: {member['name']}"
+            assert (ROOT / "assets/img" / member["image"]).is_file()
+    grants = yaml.safe_load((ROOT / "_data/funded_projects.yml").read_text(encoding="utf-8"))
+    awards = grants["projects"]
+    assert len({award["id"] for award in awards}) == len(awards), "Duplicate award ID"
+    for award in awards:
+        for field in ("id", "title", "sponsor", "source_url", "source_status"):
+            assert award.get(field), f"Missing grant field: {field}"
+        assert award["source_status"] == "Funded", f"Unfunded record: {award['id']}"
+        assert urlsplit(award["source_url"]).scheme == "https"
+        if award.get("start_date") and award.get("end_date"):
+            assert date.fromisoformat(str(award["start_date"])) <= date.fromisoformat(str(award["end_date"]))
     nav = sorted((frontmatter(p)["nav_order"], frontmatter(p)["title"]) for p in paths if frontmatter(p).get("nav"))
     assert len({n for n, _ in nav}) == len(nav), "Duplicate navigation order"
     preprints = sum(f["publication_status"] == "preprint" for _, f in entries.values())
@@ -115,6 +133,7 @@ class Page(HTMLParser):
     def __init__(self):
         super().__init__()
         self.links, self.ids, self.images = [], set(), []
+        self.scripts, self.styles = [], []
 
     def handle_starttag(self, tag, attributes):
         attrs = dict(attributes)
@@ -125,6 +144,10 @@ class Page(HTMLParser):
                 self.links.append(attrs[attr])
         if tag == "img":
             self.images.append(attrs)
+        if tag == "script" and attrs.get("src"):
+            self.scripts.append(attrs["src"])
+        if tag == "link" and attrs.get("rel") == "stylesheet":
+            self.styles.append(attrs.get("href", ""))
 
 
 def built_check(destination, baseurl):
@@ -169,7 +192,23 @@ def built_check(destination, baseurl):
     assert not (destination / "blog").exists(), "Template blog was published"
     assert not (destination / "books").exists(), "Template book collection was published"
     assert not (destination / "assets/json/resume.json").exists(), "Template resume was published"
+    people = (destination / "people/index.html").read_text(encoding="utf-8")
+    roster = yaml.safe_load((ROOT / "_data/people.yml").read_text(encoding="utf-8"))
+    for group in roster["groups"]:
+        for member in group["members"]:
+            assert member["id"] in parsed[destination / "people/index.html"].ids, f"Missing person: {member['name']}"
+    assert "Electrical Engineering" in people and "alumni" in people
+    grants = yaml.safe_load((ROOT / "_data/funded_projects.yml").read_text(encoding="utf-8"))
+    projects = (destination / "projects/index.html").read_text(encoding="utf-8")
+    assert grants["source_url"] in projects
+    for grant in grants["projects"]:
+        assert grant["id"] in parsed[destination / "projects/index.html"].ids
+    home_page = parsed[destination / "index.html"]
+    for resource in home_page.scripts + home_page.styles:
+        assert not any(unused in resource for unused in ("mdb.min", "mathjax", "polyfill", "masonry", "medium-zoom", "fonts.googleapis")), f"Unused home dependency: {resource}"
+    assert "main-content" in home_page.ids
     print(f"Fresh build checks passed: {len(parsed)} HTML pages and their local links.")
+    print(f"Home resources: {len(home_page.scripts)} scripts; {len(home_page.styles)} stylesheets; main CSS {(destination / 'assets/css/main.css').stat().st_size:,} bytes.")
 
 
 if __name__ == "__main__":

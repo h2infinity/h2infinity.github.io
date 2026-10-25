@@ -23,7 +23,7 @@ url: https://h2infinity.github.io # GitHub Pages user site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
-back_to_top: true # set to false to disable the back to top button
+back_to_top: false # native scrolling keeps the default pages lightweight
 
 # -----------------------------------------------------------------------------
 # Theme
@@ -208,6 +208,7 @@ exclude:
   - CONTENT_SOURCES.md
   - PUBLISHING.md
   - VALIDATION.md
+  - START_HERE.md
   - docs/
   - node_modules/
   - .venv/
@@ -377,7 +378,7 @@ max_author_limit: # display every author
 more_authors_animation_delay: 10 # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
-enable_publication_thumbnails: true
+enable_publication_thumbnails: false
 
 # -----------------------------------------------------------------------------
 # Jekyll Link Attributes
@@ -432,14 +433,17 @@ enable_openpanel_analytics: false # enables Openpanel analytics (https://openpan
 enable_google_verification: false # enables google site verification
 enable_bing_verification: false # enables bing site verification
 enable_cookie_consent: false # enables GDPR-compliant cookie consent dialog (https://github.com/orestbida/cookieconsent)
-enable_masonry: true # enables automatic project cards arrangement
-enable_math: true # enables math typesetting (uses MathJax)
+enable_masonry: false # responsive CSS grids do not need a layout script
+enable_math: false # opt in on individual pages with math: true
 enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
 enable_darkmode: true # enables switching between light/dark modes
 enable_navbar_social: false # enables displaying social links in the navbar on the about page
 enable_project_categories: true # enables categorization of projects into multiple categories
-enable_medium_zoom: true # enables image zoom feature (as on medium.com)
-enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
+enable_medium_zoom: false # static laboratory portraits do not need a zoom library
+enable_progressbar: false # avoid a scroll listener on every page
+enable_mdb: false # retain Bootstrap; load Material Design assets only if needed
+enable_web_fonts: false # system fonts avoid external font requests
+enable_extended_styles: false # optional template styles remain available in _sass
 enable_video_embedding: false # enables video embedding for bibtex entries. If false, the button opens the video link in a new window.
 
 # -----------------------------------------------------------------------------

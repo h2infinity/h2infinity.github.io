@@ -28,11 +28,13 @@
 @use "utilities";
 
 // Other specialized styles
+{% if site.enable_extended_styles %}
 @use "distill";
 @use "cv";
 @use "tabs";
 @use "teachings";
 @use "typograms";
+{% endif %}
 @use "font-awesome/fontawesome";
 @use "font-awesome/brands";
 @use "font-awesome/solid";

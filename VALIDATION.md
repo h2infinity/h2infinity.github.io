@@ -46,4 +46,16 @@ The initial remote formatting job installed the newest formatter instead of usin
 
 Removed 132 files: template blog posts, example projects, sample books/courses/resumes/media, superseded publication lists, duplicate archive records, old Lighthouse reports and README screenshots, and unrelated template automation. The inherited Jekyll framework, layouts, styles, reusable components, laboratory content, source provenance, and build/development configuration remain. The cleared sample venue map remains available to the existing bibliography component.
 
-Cleanup was checked against an explicit path list confined to the project directory. Source validation and formatting pass. A fresh remote build is required to verify this cleanup revision before reporting its deployment as successful. Repository renaming is unavailable through the current connector and must be performed through GitHub Settings.
+Cleanup was checked against an explicit path list confined to the project directory. [Run 40149849042](https://github.com/h2infinity/h2infinity.github.io/actions/runs/40149849042) verified the cleanup commit `2073596f1f3e9371221bfb89eec0c2e4efba0f9f`: production build, generated links, formatting, and Pages deployment passed. The repository has since been renamed to `h2infinity/h2infinity.github.io` (repository ID `1200937480`).
+
+## Responsive presentation and editable content
+
+The existing Jekyll, Bootstrap, Liquid, and Sass structure is retained. Faculty and student biographies are now named Markdown includes with a YAML roster, keeping page routing and the existing profiles layout. Native disclosures show longer biographies without adding JavaScript. Hemanta Ban's Ph.D. field was corrected to Electrical Engineering from the updated owner-provided text; five current students and the separate alumni list are preserved.
+
+The presentation uses existing colors with a restrained warm accent, flexible cards, fluid spacing, bounded text widths, a small responsive director portrait, an accessible skip link, visible keyboard focus, and a scrollable collapsed menu below 1200 px. Grid columns use `minmax(min(100%, ...), 1fr)` to fit narrow screens; long publication links can wrap. Motion is disabled for visitors who request reduced motion.
+
+Default pages no longer request Material Design CSS/JS, external web fonts, MathJax/polyfills, Masonry, zoom, progress-bar, or Jupyter scripts. Bootstrap and the existing navigation/dark-mode/bibliography behavior remain. Syntax styles and copy-code helpers are loaded on code pages; optional math and academic icon assets can be requested per page. Dormant extended Sass modules remain available behind `enable_extended_styles`.
+
+The source validator now checks roster/biography consistency, award status and date structure, rendered member/award IDs, the skip target, and absence of unused default dependencies. GitHub Actions reports default-page resource counts and generated CSS size. Source and formatting checks pass locally; a fresh production build validates the revised output before deployment. Browser visual checks remain unavailable in this session, so appearance at specific viewport sizes and interactive behavior are not claimed as visually verified.
+
+The full funded-project inventory remains incomplete: the supplied UTK grants page exposed no readable records. Its official link and a structured, documented award file are provided; no grant details were invented. See `CONTENT_SOURCES.md` for the access record.

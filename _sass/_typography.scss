@@ -5,12 +5,7 @@
 @use "variables" as v;
 
 body {
-  font-family:
-    "Manrope",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
   line-height: 1.72;
   letter-spacing: 0.002em;
@@ -27,7 +22,7 @@ iframe {
 h1,
 h2,
 h3 {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   letter-spacing: -0.01em;
 }
 

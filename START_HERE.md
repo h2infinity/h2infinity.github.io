@@ -1,0 +1,50 @@
+# Edit the laboratory website
+
+The site uses the existing Jekyll/al-folio template. Most content changes require only Markdown or YAML; no build-system or template changes are needed.
+
+| What to change                      | File or folder                                                                                       |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Laboratory introduction             | [\_pages/about.md](_pages/about.md)                                                                  |
+| Home hero and buttons               | [\_includes/home/hero.liquid](_includes/home/hero.liquid)                                            |
+| People names, roles, order, groups  | [\_data/people.yml](_data/people.yml)                                                                |
+| Individual biographies              | [\_includes/people/](_includes/people/) - one named Markdown file per person                         |
+| Alumni and historical affiliations  | [\_includes/people/alumni.md](_includes/people/alumni.md)                                            |
+| Funded projects                     | [\_data/funded_projects.yml](_data/funded_projects.yml)                                              |
+| Research-theme project pages        | [\_projects/](_projects/)                                                                            |
+| Research overview                   | [\_pages/research.md](_pages/research.md)                                                            |
+| Publications                        | [\_bibliography/papers.bib](_bibliography/papers.bib)                                                |
+| News                                | [\_news/](_news/)                                                                                    |
+| Contact and teaching                | [\_pages/contact.md](_pages/contact.md), [\_pages/teaching.md](_pages/teaching.md)                   |
+| Shared layout and responsive styles | [\_sass/\_layout.scss](_sass/_layout.scss), [\_sass/\_components.scss](_sass/_components.scss)       |
+| Colors and typography               | [\_sass/\_variables.scss](_sass/_variables.scss), [\_sass/\_typography.scss](_sass/_typography.scss) |
+| Optional features and site identity | [\_config.yml](_config.yml)                                                                          |
+
+## People
+
+Edit a person's named Markdown file under `_includes/people/`. The paragraph before `<!--more-->` is always visible. Additional paragraphs after that marker appear in an accessible, native disclosure. Keep the marker on its own line. The director biography is fully displayed. Photos are optional; no placeholder portraits are generated.
+
+Names, degree fields, and appointments belong in `_data/people.yml`. Update both the roster role and the biography when an appointment changes. Current students and alumni remain separate. The latest laboratory-provided `People_bio.txt` was used for this revision; Hemanta Ban is listed in Electrical Engineering.
+
+## Funded projects
+
+Edit `_data/funded_projects.yml`. Add one entry per official **Funded** record; do not include **Proposed** or **Not Funded** records. Quote dates as `YYYY-MM-DD`. Fields are `id` (unique lowercase slug), `title`, `sponsor`, `source_status: Funded`, and `source_url`; include `start_date`, `end_date`, `award_id`, or `description` only when verified. Entries are sorted by recorded start date, newest first. Historical award dates do not mean a project is still active. No amounts or investigator roles are inferred.
+
+The supplied UTK grants profile did not expose readable award records to this session. Its official link is displayed on Projects, but `projects: []` is deliberately empty and coverage is marked `source-unavailable`. This is not a verified complete grant inventory. Add the supplied official records here when available, then mark coverage `complete` only after every funded record and every source page has been reviewed.
+
+## Layout and loading
+
+The existing Bootstrap grid, navigation, bibliography, dark mode, and Jekyll layouts remain. System fonts avoid external font downloads. Material Design assets, math rendering, image zoom, Masonry, and scrolling animations are off by default. Set `math: true`, `code: true`, or `academic_icons: true` in a page's front matter when it needs those features. Optional legacy styles can be enabled with `enable_extended_styles` in `_config.yml`.
+
+## Save and publish
+
+On GitHub, open a linked file, choose **Edit**, make the change, and commit it to `main`. **Actions > Deploy site** rebuilds and validates the website before publishing at `https://h2infinity.github.io/`. See [PUBLISHING.md](PUBLISHING.md) for local commands and [CONTENT_SOURCES.md](CONTENT_SOURCES.md) for provenance.
+
+For local checks:
+
+```sh
+python bin/validate_site.py
+npm ci
+npx prettier . --check
+```
+
+The existing Docker setup provides a full local preview when Docker is installed.

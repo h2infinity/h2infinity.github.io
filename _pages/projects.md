@@ -2,13 +2,17 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: Research themes and applications from the Networked Systems Laboratory.
+description: Sponsored research, laboratory projects, and the systems that connect them.
 nav: true
 nav_order: 4
 horizontal: false
 ---
 
-Research themes and representative contributions. These pages describe published work and do not imply active funding.
+{% include funded_projects.liquid %}
+
+## Research themes
+
+Representative contributions across control, computation, and interconnected systems. Theme pages describe published research and do not imply current funding.
 
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}

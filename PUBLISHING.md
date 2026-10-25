@@ -4,23 +4,23 @@ The project retains the existing al-folio/Jekyll architecture. `.github/workflow
 
 ## Repository and address
 
-- GitHub owner: `h2infinity`
-- Existing repository: `h2infinity/hban29.github.io`
-- Requested final repository name: `h2infinity.github.io`
-- Final site address after renaming and redeploying: `https://h2infinity.github.io/`
+- GitHub repository: `h2infinity/h2infinity.github.io`
+- Website: `https://h2infinity.github.io/`
+- Branch: `main`
+- Pages source: **GitHub Actions**
 
-The laboratory source was uploaded in commit `d8885df33e6ac8bbdc1d817272db9b09a5ec47d0`. [Deployment run 40149173656](https://github.com/h2infinity/hban29.github.io/actions/runs/40149173656) passed the production Jekyll build, generated-site checks, and Pages deployment. The repository is being reused and cleaned up at the owner's request. The current GitHub connector can update repository contents but has no repository-renaming operation, and no browser is exposed. The final repository name and root address must not be described as active until the rename and subsequent deployment are verified.
+The existing repository was renamed successfully (repository ID `1200937480`); no new website architecture or hosting provider was introduced. The workflow derives its URL and base path from the current repository name. `_config.yml` and `_config.github-pages.yml` both target the root address.
 
-## Rename and redeploy
+## Edit and deploy
 
-1. Open the repository's **Settings > General** page and change **Repository name** from `hban29.github.io` to `h2infinity.github.io`.
-2. Keep **Settings > Pages > Build and deployment > Source** set to **GitHub Actions**.
-3. In **Actions > Deploy site**, choose **Run workflow** on `main`. Renaming alone does not rebuild the Pages artifact. Any subsequent source commit to `main` also triggers deployment.
-4. Confirm the build and deployment jobs succeed, then inspect the home, research, people, publications, projects, teaching, news, and contact pages at the final address.
+1. Use [START_HERE.md](START_HERE.md) to find the content file. Edit Markdown biographies, the YAML roster or grant list, BibTeX publications, or dated news as appropriate.
+2. Commit changes to `main`. **Actions > Deploy site** validates source, builds the production Jekyll site, checks generated routes and links, and deploys after those checks pass. Pull requests build without publishing.
+3. To rebuild without a content change, use **Actions > Deploy site > Run workflow** on `main`.
+4. Confirm both the build and deployment jobs succeed. Inspect the public home, research, people, publications, projects, teaching, news, and contact pages at desktop and mobile widths.
 
-The workflow derives `url` and `baseurl` from the current owner and repository. The final user-site name produces an empty base path; the existing project name produces `/hban29.github.io`. `_config.yml` and `_config.github-pages.yml` already target the requested root address. Keep those configurations aligned.
+The prior cleanup deployment passed in [run 40149849042](https://github.com/h2infinity/h2infinity.github.io/actions/runs/40149849042). Current deployment status is available in the repository's Actions tab.
 
-The local `.git/config` still points to the original `hban29/hban29.github.io` remote and has not been modified. Update it to `https://github.com/h2infinity/h2infinity.github.io.git` only after the rename is confirmed.
+The local `.git/config` still points to the original `hban29/hban29.github.io` remote and has not been modified because that metadata is read-only in this environment. When using Git locally, set the remote to `https://github.com/h2infinity/h2infinity.github.io.git` before pushing. Connected GitHub tool updates target the renamed repository directly.
 
 ## Maintenance checks and local preview
 
