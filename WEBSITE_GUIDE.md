@@ -10,6 +10,6 @@ The website retains its existing Jekyll/al-folio architecture. Update content in
 6. Record new evidence and access limitations in `CONTENT_SOURCES.md`.
 7. Run source checks, formatting, and a fresh Jekyll build. See `PUBLISHING.md` and `VALIDATION.md`.
 
-Template demos and superseded decade lists are excluded in `_config.yml`. Superseded source records are kept in `docs/archive/`; neither that directory nor the maintenance documents are published.
+Template demos, sample media, superseded decade lists, redundant archive copies, old performance reports, and unrelated template publishing workflows have been removed. Git history retains prior revisions. Maintenance documents are excluded from the published site.
 
 The configured GitHub Pages user site is `https://h2infinity.github.io/`; the workflow also supports a project repository base path. Keep `_config.yml` and `_config.github-pages.yml` aligned. The UTK profile remains available in `_config.utk.yml` for a separate university-host build.

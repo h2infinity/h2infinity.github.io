@@ -1,57 +1,47 @@
 # Publish the laboratory website
 
-The project remains the existing al-folio/Jekyll website. There is one automatic publishing workflow: `.github/workflows/deploy.yml`. It builds the full Jekyll plugin configuration, checks generated local links and bibliography entries, and deploys through GitHub Pages Actions. It does not require a personal access token stored in the repository.
+The project retains the existing al-folio/Jekyll architecture. `.github/workflows/deploy.yml` builds the existing Gemfile and plugins, validates source and generated HTML, uploads a Pages artifact, and deploys through GitHub Pages Actions. No personal access token is stored in this repository.
 
-## Intended destination
+## Repository and address
 
 - GitHub owner: `h2infinity`
-- Recommended user-site repository: `h2infinity.github.io`
-- Intended address: `https://h2infinity.github.io/`
+- Existing repository: `h2infinity/hban29.github.io`
+- Requested final repository name: `h2infinity.github.io`
+- Final site address after renaming and redeploying: `https://h2infinity.github.io/`
 
-This address is a configuration target, not a verified live deployment. This session did not have an authenticated GitHub connection, Git/GitHub CLI, or an exposed browser. Direct shell network access to GitHub was denied. No remote repository, branch, Pages settings, or live university site has been changed.
+The laboratory source was uploaded in commit `d8885df33e6ac8bbdc1d817272db9b09a5ec47d0`. [Deployment run 40149173656](https://github.com/h2infinity/hban29.github.io/actions/runs/40149173656) passed the production Jekyll build, generated-site checks, and Pages deployment. The repository is being reused and cleaned up at the owner's request. The current GitHub connector can update repository contents but has no repository-renaming operation, and no browser is exposed. The final repository name and root address must not be described as active until the rename and subsequent deployment are verified.
 
-The local `.git/config` still points to `hban29/hban29.github.io`; it is deliberately preserved until the correct destination can be inspected. Do not push to that origin when intending to publish to `h2infinity`.
+## Rename and redeploy
 
-## Publish with authenticated GitHub access
+1. Open the repository's **Settings > General** page and change **Repository name** from `hban29.github.io` to `h2infinity.github.io`.
+2. Keep **Settings > Pages > Build and deployment > Source** set to **GitHub Actions**.
+3. In **Actions > Deploy site**, choose **Run workflow** on `main`. Renaming alone does not rebuild the Pages artifact. Any subsequent source commit to `main` also triggers deployment.
+4. Confirm the build and deployment jobs succeed, then inspect the home, research, people, publications, projects, teaching, news, and contact pages at the final address.
 
-1. Install and connect the GitHub integration to the `h2infinity` account, or use an authenticated Git/GitHub CLI environment.
-2. Inspect `h2infinity/h2infinity.github.io` before creating or updating it. Preserve any existing unrelated work. Use the source files in this project, not the pre-existing `_site/` output.
-3. In the destination repository, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. This matches the repository's existing Actions deployment approach.
-4. Push the source to `main`. The `Deploy site` workflow installs the existing Ruby/Jekyll dependencies, validates source, builds the site, checks generated output, uploads the artifact, and deploys it. Pull requests build and validate without deploying.
-5. Confirm the workflow succeeds, then inspect the published home, research, people, publications, projects, teaching, news, and contact pages on desktop and mobile, including dark mode and publication search.
+The workflow derives `url` and `baseurl` from the current owner and repository. The final user-site name produces an empty base path; the existing project name produces `/hban29.github.io`. `_config.yml` and `_config.github-pages.yml` already target the requested root address. Keep those configurations aligned.
 
-The workflow derives `url` and `baseurl` from the actual owner and repository name. The user-site repository gets an empty base path; a project repository gets `/<repository>`. For manual builds of a project repository, pass the corresponding `--baseurl /repository` value. For a custom domain, update the URL configuration and workflow together before deploying.
+The local `.git/config` still points to the original `hban29/hban29.github.io` remote and has not been modified. Update it to `https://github.com/h2infinity/h2infinity.github.io.git` only after the rename is confirmed.
 
-## Local validation and preview
+## Maintenance checks and local preview
 
-The repository recommends Docker; with Docker installed:
-
-```sh
-docker compose up --build
-```
-
-Open `http://localhost:8080`. The native Ruby alternative is:
-
-```sh
-bundle install
-bundle exec jekyll serve --config _config.yml,_config.github-pages.yml --port 4000
-```
-
-Source checks and fresh-build checks:
+The retained deployment, formatting, CodeQL, and development-setup workflows support the laboratory site. Template container-publishing, sample-CV generation, citation scraping, automatic TOC editing, and obsolete report workflows have been removed. Formatting uses the checked-in npm lockfile via `npm ci`.
 
 ```sh
 python -m pip install pyyaml
 python bin/validate_site.py
+npm ci
+npx prettier . --check
+docker compose up --build
+```
+
+Open `http://localhost:8080` for the Docker preview. Native Ruby builds remain available:
+
+```sh
+bundle install
 JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.github-pages.yml
 python bin/validate_site.py --built _site
 ```
 
-Use the existing installed Prettier executable, or install the dependencies with `npm ci`:
+The workflow validates project builds using `--baseurl "$SITE_BASEURL"`. A fresh `_site/` produced by a successful build is the deployable artifact; the old local output must not be uploaded.
 
-```sh
-node node_modules/prettier/bin/prettier.cjs . --check
-```
-
-The former duplicate `jekyll.yml` deployment is archived. CV generation and citation scraping are manual-only because the laboratory site does not publish the template CV or scraped citation metrics. `bin/deploy` is a legacy branch-publishing helper; use the Actions workflow documented here for the configured site.
-
-The UTK publishing profile remains available as `_config.utk.yml`. Uploading files to UTK requires separate university-host access; GitHub Pages publication will not replace the university-hosted site automatically.
+The UTK profile remains in `_config.utk.yml`. GitHub Pages publication does not modify the university-hosted site.

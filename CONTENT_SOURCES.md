@@ -10,7 +10,7 @@ Professor Djouadi's faculty title, education, office, telephone, and core intere
 
 ## Publication records
 
-The active bibliography has 14 published papers and five preprints. All authors are displayed, and entries have DOI and publisher/repository links. The prior bibliography is retained in `docs/archive/papers.bib.before-lab-update`, excluded from output. It contained incomplete and inconsistent metadata; it was replaced with a smaller, source-linked selection rather than silently carrying every entry forward.
+The active bibliography has 14 published papers and five preprints. All authors are displayed, and entries have DOI and publisher/repository links. The prior bibliography contained incomplete and inconsistent metadata; it was replaced with a smaller, source-linked selection rather than silently carrying every entry forward. Superseded records remain available in Git history; redundant archive copies were removed during repository cleanup.
 
 | Citation key               | Source used                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,4 +56,4 @@ The page now distinguishes laboratory leadership, faculty, the five current grad
 
 ## Other content
 
-Teaching is explicitly historical and linked to the [faculty course page](https://web.eecs.utk.edu/~mdjouadi/courses.html). Unsupported old news about a 2018 award and an invited acceptance was replaced with dated publication/preprint announcements. Template blog posts, book reviews, example projects, sample resume/PDF, and duplicate decade publication lists are excluded from the build. Superseded local records are archived under `docs/archive/`, also excluded from output.
+Teaching is explicitly historical and linked to the [faculty course page](https://web.eecs.utk.edu/~mdjouadi/courses.html). Unsupported old news about a 2018 award and an invited acceptance was replaced with dated publication/preprint announcements. Template blog posts, book reviews, example projects, sample resume/PDF, and duplicate decade publication lists were removed from the repository, together with their unused sample media and redundant archive copies.
