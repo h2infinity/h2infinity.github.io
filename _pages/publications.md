@@ -8,7 +8,7 @@ nav_order: 3
 code: true
 ---
 
-Recent publications and representative earlier work by Professor Djouadi and collaborators. Each entry links to a DOI, publisher, or academic repository. This is a curated bibliography, rather than a complete career publication list. Records checked October 24, 2026.
+Recent publications and representative earlier work by Professor Djouadi and collaborators. Each entry links to a DOI, publisher, or academic repository. This is a curated bibliography, rather than a complete career publication list. Records checked October 24, 2026; the formation-control conference record was updated October 25, 2026.
 
 [Published papers](#published-papers) · [Preprints](#preprints)
 

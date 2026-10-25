@@ -40,7 +40,7 @@ The existing Bootstrap grid, navigation, bibliography, dark mode, and Jekyll lay
 
 Edit this copy's content files, then rebuild and package using [PUBLISHING.md](PUBLISHING.md). Upload only the generated `utk-upload/` contents to the account's `~/webhome/`. The default URL is `https://web.eecs.utk.edu/~mdjouadi/`.
 
-The original `../control-group/` source and GitHub Pages website remain unchanged. This copy's build-only workflow runs on the isolated UTK branch and does not publish to Pages.
+This copy uses its own UTK URL configuration. Shared content corrections were also applied to `../control-group/` and GitHub Pages at the owner's request on October 25, 2026. This copy's build-only workflow runs on the isolated UTK branch and does not publish to Pages.
 
 For local source checks, use the locked formatter from the original source, or install it here:
 
