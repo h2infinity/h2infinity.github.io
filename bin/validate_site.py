@@ -70,8 +70,8 @@ def source_check():
         return any(path == e or path.startswith(e + "/") for e in exclusions)
 
     paths = [p for folder in ("_pages", "_projects", "_news")
-             for p in (ROOT / folder).glob("*.md")
-             if not excluded(p.relative_to(ROOT).as_posix())]
+             for p in (ROOT / folder).iterdir()
+             if p.suffix in (".md", ".html") and not excluded(p.relative_to(ROOT).as_posix())]
     routes = set()
     for path in paths:
         data = frontmatter(path)
@@ -148,6 +148,9 @@ def built_check(destination, baseurl, origin=""):
     baseurl = baseurl.rstrip("/")
     for route in ("index.html", "research/index.html", "people/index.html", "publications/index.html", "projects/index.html", "contact/index.html"):
         assert (destination / route).is_file(), f"Missing generated page: {route}"
+    for old, target in (("publications", "publications/"), ("courses", "teaching/"), ("students", "people/#alumni")):
+        legacy = (destination / f"{old}.html").read_text(encoding="utf-8")
+        assert f"{baseurl}/{target}" in legacy and 'http-equiv="refresh"' in legacy, f"Missing legacy redirect: {old}"
     parsed = {}
     for file in destination.rglob("*.html"):
         page = Page()

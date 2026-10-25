@@ -18,7 +18,7 @@ Do not upload this editable source folder, a GitHub Pages artifact, or the old `
 
 The [EECS Personal User Web Pages guide](https://help.eecs.utk.edu/knowledge-base/linux-topics/user-websites) documents `~/webhome`, upload methods, VPN access, and permissions.
 
-The generated manifest lists every new public file. Remove obsolete public files only after comparing them with the backed-up old site. Existing PDF, paper, and course URLs have not been inventoried because the old site could not be fetched in this session. Preserve such files until their inbound links are checked. No server-side deletion or upload has been performed here.
+The old `publications.html`, `courses.html`, and `students.html` addresses redirect to their replacement pages. The generated manifest lists every new public file. Remove obsolete public files only after comparing them with the backed-up old site. Existing PDF, paper, and course URLs have not been inventoried because the old site could not be fetched in this session. Preserve such files until their inbound links are checked. No server-side deletion or upload has been performed here.
 
 ## Rebuild after content changes
 

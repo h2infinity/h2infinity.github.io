@@ -14,7 +14,7 @@ Co-advised by Kevin Tomsovic and Seddik Djouadi. Research on power-system freque
 
 ### Earlier alumni
 
-The [historical group roster](https://web.eecs.utk.edu/~mdjouadi/students.html) records the following former students and visitors. Dates below are historical records; current employers are omitted.
+The historical faculty group roster records the following former students and visitors. Dates below are historical records; current employers are omitted.
 
 - Samir S. Sahyoun - Ph.D., 2017
 - Truman Bonds - Ph.D., 2016
@@ -33,6 +33,6 @@ The [historical group roster](https://web.eecs.utk.edu/~mdjouadi/students.html) 
 
 ## Historical group affiliations
 
-Ehsan Raoufat, Samaneh Morovati, and Nedas Jakstas appear in the [historical group roster](https://web.eecs.utk.edu/~mdjouadi/students.html). They are not included in the current member roster supplied for this website.
+Ehsan Raoufat, Samaneh Morovati, and Nedas Jakstas appear in the historical faculty group roster. They are not included in the current member roster supplied for this website.
 
 _Faculty and student biographies updated from laboratory-provided information. Please contact the laboratory to update a profile._

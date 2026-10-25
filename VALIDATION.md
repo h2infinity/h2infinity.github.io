@@ -10,7 +10,7 @@ Thirty inherited template documents, contribution metadata, editor setup files, 
 
 ## Automated checks
 
-The existing source validator checks 18 content files, the roster and named biography files, 14 published papers, five labeled preprints, routes, required assets, and template placeholders. The UTK build checker additionally validates `/~mdjouadi` local paths, anchors, responsive image sources, canonical URLs, all members and publications, and shared research-theme inclusion.
+The existing source validator checks 21 content files (including three legacy redirects), the roster and named biography files, 14 published papers, five labeled preprints, routes, required assets, and template placeholders. Known old publication, course, and student URLs redirect to their replacement pages; their new content no longer cites the replaced pages as historical archives. The UTK build checker additionally validates `/~mdjouadi` local paths, anchors, responsive image sources, canonical URLs, all members and publications, and shared research-theme inclusion.
 
 `bin/package_utk.py` recursively collects HTML dependencies and CSS font/image references, checks the trimmed upload copy again, verifies the feed/sitemap/robots URLs, and verifies the ZIP and its SHA-256 manifest. A build-only workflow on the isolated UTK branch runs formatting, source validation, the production Jekyll build, and packaging. It has no deployment job or write permissions.
 

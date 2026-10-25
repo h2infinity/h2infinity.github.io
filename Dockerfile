@@ -53,8 +53,7 @@ ENV EXECJS_RUNTIME=Node \
 # create a directory for the jekyll site
 RUN mkdir /srv/jekyll
 
-# copy the Gemfile and Gemfile.lock to the image
-ADD Gemfile.lock /srv/jekyll
+# Copy the dependency specification; bundle install generates its lockfile.
 ADD Gemfile /srv/jekyll
 
 # set the working directory
