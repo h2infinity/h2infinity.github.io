@@ -1,0 +1,53 @@
+name: Prepare UTK publishing copy
+
+on:
+  push:
+    branches: [utk-publishing-copy-20261025]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout UTK copy
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.5"
+          bundler-cache: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          python -m pip install nbconvert pyyaml
+          npm ci
+      - name: Check formatting and source
+        run: |
+          npx prettier . --check
+          python bin/validate_site.py
+      - name: Build university website
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --config _config.yml,_config.utk.yml --destination _site-utk --trace
+      - name: Validate and package upload
+        run: python bin/package_utk.py --built _site-utk --output dist
+      - name: Upload university publishing package
+        uses: actions/upload-artifact@v4
+        with:
+          name: UTK-website-upload
+          path: dist/
+          if-no-files-found: error
+          retention-days: 90

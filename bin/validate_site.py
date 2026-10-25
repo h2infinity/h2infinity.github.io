@@ -60,8 +60,10 @@ def bibliography():
 def source_check():
     config = yaml.safe_load((ROOT / "_config.yml").read_text(encoding="utf-8"))
     assert config["title"] == "Networked Systems Laboratory"
-    assert config["url"] == "https://h2infinity.github.io"
-    assert not config["baseurl"]
+    assert config["url"] == "https://web.eecs.utk.edu"
+    assert config["baseurl"] == "/~mdjouadi"
+    override = yaml.safe_load((ROOT / "_config.utk.yml").read_text(encoding="utf-8"))
+    assert override["url"] == config["url"] and override["baseurl"] == config["baseurl"]
     exclusions = [p.rstrip("/") for p in config["exclude"]]
 
     def excluded(path):
@@ -131,6 +133,8 @@ class Page(HTMLParser):
         for attr in ("href", "src"):
             if attrs.get(attr):
                 self.links.append(attrs[attr])
+        if attrs.get("srcset"):
+            self.links.extend(part.strip().split()[0] for part in attrs["srcset"].split(",") if part.strip())
         if tag == "img":
             self.images.append(attrs)
         if tag == "script" and attrs.get("src"):
@@ -139,7 +143,7 @@ class Page(HTMLParser):
             self.styles.append(attrs.get("href", ""))
 
 
-def built_check(destination, baseurl):
+def built_check(destination, baseurl, origin=""):
     destination = destination.resolve()
     baseurl = baseurl.rstrip("/")
     for route in ("index.html", "research/index.html", "people/index.html", "publications/index.html", "projects/index.html", "contact/index.html"):
@@ -151,6 +155,8 @@ def built_check(destination, baseurl):
         page.feed(text)
         parsed[file] = page
         assert "{{" not in text and "{%" not in text, f"Unrendered Liquid: {file}"
+        if origin:
+            assert f'rel="canonical" href="{origin}{baseurl}/' in text, f"Incorrect canonical URL: {file}"
     for file, page in parsed.items():
         for href in page.links:
             url = urlsplit(href)
@@ -204,7 +210,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--built", type=Path)
     parser.add_argument("--baseurl", default="")
+    parser.add_argument("--origin", default="")
     args = parser.parse_args()
     source_check()
     if args.built:
-        built_check(args.built, args.baseurl)
+        built_check(args.built, args.baseurl, args.origin)

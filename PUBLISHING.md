@@ -1,47 +1,38 @@
-# Publish the laboratory website
+# Replace the university-hosted website
 
-The project retains the existing al-folio/Jekyll architecture. `.github/workflows/deploy.yml` builds the existing Gemfile and plugins, validates source and generated HTML, uploads a Pages artifact, and deploys through GitHub Pages Actions. No personal access token is stored in this repository.
+Target: **https://web.eecs.utk.edu/~mdjouadi/**. This package is an independent UTK copy; the GitHub Pages site remains unchanged.
 
-## Repository and address
+## Which files to upload
 
-- GitHub repository: `h2infinity/h2infinity.github.io`
-- Website: `https://h2infinity.github.io/`
-- Branch: `main`
-- Pages source: **GitHub Actions**
+Use `Networked-Systems-Laboratory-UTK-upload.zip`, or the identical `utk-upload/` directory. The archive contains the finished HTML pages, referenced styles, scripts, portrait variants, icon fonts, favicon, feed, sitemap, robots file, and license. `index.html` is at the archive root.
 
-The existing repository was renamed successfully (repository ID `1200937480`); no new website architecture or hosting provider was introduced. The workflow derives its URL and base path from the current repository name. `_config.yml` and `_config.github-pages.yml` both target the root address.
+Do not upload this editable source folder, a GitHub Pages artifact, or the old `control-group/_site/` output. The UTK build uses `url: https://web.eecs.utk.edu` and `baseurl: /~mdjouadi`. The university URL prefix is embedded in the links; do not create another `~mdjouadi` subfolder inside the web directory.
 
-## Edit and deploy
+## Upload using the EECS account
 
-1. Use [START_HERE.md](START_HERE.md) to find the content file. Edit Markdown biographies, the YAML roster or Markdown research themes, BibTeX publications, or dated news as appropriate.
-2. Commit changes to `main`. **Actions > Deploy site** validates source, builds the production Jekyll site, checks generated routes and links, and deploys after those checks pass. Pull requests build without publishing.
-3. To rebuild without a content change, use **Actions > Deploy site > Run workflow** on `main`.
-4. Confirm both the build and deployment jobs succeed. Inspect the public home, research, people, publications, projects, teaching, news, and contact pages at desktop and mobile widths.
+1. Connect to the university VPN when off campus. Open the EECS Linux account associated with `mdjouadi` through the university-supported SFTP/SCP service, or its mapped network share. Use the host/share supplied for that account; the public website hostname is not a verified SFTP endpoint.
+2. Back up the existing `~/webhome/` contents to a location outside `webhome` before replacing them.
+3. Copy the **contents** of `utk-upload/` directly into `~/webhome/`, overwriting the current `index.html` and matching assets. Alternatively, upload and extract the upload ZIP there, then remove the ZIP from the public directory. Do not nest `utk-upload/` under `webhome/`.
+4. Files need mode `644` and directories `755`, or the equivalent EECS `userweb` permissions. Files copied through the supported mapped share receive its group permissions.
+5. Open the target URL and check Home, Research, People, Publications, Projects, Teaching, News, Contact, the portrait, publication search, and light/dark mode at desktop and phone widths. Reload without the browser cache if old styling appears.
 
-The prior cleanup deployment passed in [run 40149849042](https://github.com/h2infinity/h2infinity.github.io/actions/runs/40149849042). Current deployment status is available in the repository's Actions tab.
+The [EECS Personal User Web Pages guide](https://help.eecs.utk.edu/knowledge-base/linux-topics/user-websites) documents `~/webhome`, upload methods, VPN access, and permissions.
 
-The local `.git/config` still points to the original `hban29/hban29.github.io` remote and has not been modified because that metadata is read-only in this environment. When using Git locally, set the remote to `https://github.com/h2infinity/h2infinity.github.io.git` before pushing. Connected GitHub tool updates target the renamed repository directly.
+The generated manifest lists every new public file. Remove obsolete public files only after comparing them with the backed-up old site. Existing PDF, paper, and course URLs have not been inventoried because the old site could not be fetched in this session. Preserve such files until their inbound links are checked. No server-side deletion or upload has been performed here.
 
-## Maintenance checks and local preview
-
-The retained deployment, formatting, CodeQL, and development-setup workflows support the laboratory site. Template container-publishing, sample-CV generation, citation scraping, automatic TOC editing, and obsolete report workflows have been removed. Formatting uses the checked-in npm lockfile via `npm ci`.
-
-```sh
-python -m pip install pyyaml
-python bin/validate_site.py
-npm ci
-npx prettier . --check
-docker compose up --build
-```
-
-Open `http://localhost:8080` for the Docker preview. Native Ruby builds remain available:
+## Rebuild after content changes
 
 ```sh
 bundle install
-JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.github-pages.yml
-python bin/validate_site.py --built _site
+python -m pip install nbconvert pyyaml
+JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.utk.yml --destination _site-utk
+python bin/package_utk.py --built _site-utk --output dist
 ```
 
-The workflow validates project builds using `--baseurl "$SITE_BASEURL"`. A fresh `_site/` produced by a successful build is the deployable artifact; the old local output must not be uploaded.
+Install ImageMagick before building. Use a new or empty output directory; the packager refuses to mix a new release with stale files. It checks pages, local links and fragments, responsive image sources, CSS fonts/images, canonical URLs, feed/sitemap/robots URLs, and every ZIP member against a SHA-256 manifest.
 
-The UTK profile remains in `_config.utk.yml`. GitHub Pages publication does not modify the university-hosted site.
+The build-only GitHub workflow on `utk-publishing-copy-20261025` provides an alternative when Ruby is unavailable locally. Download its `UTK-website-upload` artifact. This branch does not deploy to GitHub Pages or change `main`.
+
+## Remaining readiness checks
+
+The package can be prepared and checked without an EECS login. Actual replacement still requires access to `mdjouadi`'s `webhome`. Browser appearance and old-site legacy URLs need the live checks above. Grant-derived theme updates remain pending readable funded-project records; see `CONTENT_SOURCES.md`.

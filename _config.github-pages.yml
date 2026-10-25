@@ -1,9 +1,0 @@
-# Production profile for GitHub Pages user site
-# Usage:
-#   bundle exec jekyll serve --config _config.yml,_config.github-pages.yml
-#   bundle exec jekyll build --config _config.yml,_config.github-pages.yml
-
-url: https://h2infinity.github.io
-baseurl:
-
-footer_text: ""

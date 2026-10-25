@@ -36,11 +36,13 @@ The site footer shows only **© Networked Systems Laboratory**. Its markup is in
 
 The existing Bootstrap grid, navigation, bibliography, dark mode, and Jekyll layouts remain. System fonts avoid external font downloads. Material Design assets, math rendering, image zoom, Masonry, and scrolling animations are off by default. Set `math: true`, `code: true`, or `academic_icons: true` in a page's front matter when it needs those features. Optional legacy styles can be enabled with `enable_extended_styles` in `_config.yml`.
 
-## Save and publish
+## Save and publish the UTK copy
 
-On GitHub, open a linked file, choose **Edit**, make the change, and commit it to `main`. **Actions > Deploy site** rebuilds and validates the website before publishing at `https://h2infinity.github.io/`. See [PUBLISHING.md](PUBLISHING.md) for local commands and [CONTENT_SOURCES.md](CONTENT_SOURCES.md) for provenance.
+Edit this copy's content files, then rebuild and package using [PUBLISHING.md](PUBLISHING.md). Upload only the generated `utk-upload/` contents to the account's `~/webhome/`. The default URL is `https://web.eecs.utk.edu/~mdjouadi/`.
 
-For local checks:
+The original `../control-group/` source and GitHub Pages website remain unchanged. This copy's build-only workflow runs on the isolated UTK branch and does not publish to Pages.
+
+For local source checks, use the locked formatter from the original source, or install it here:
 
 ```sh
 python bin/validate_site.py
@@ -48,4 +50,4 @@ npm ci
 npx prettier . --check
 ```
 
-The existing Docker setup provides a full local preview when Docker is installed.
+The retained Docker setup can preview this copy when Docker is installed. Publication facts and their limits remain documented in [CONTENT_SOURCES.md](CONTENT_SOURCES.md).

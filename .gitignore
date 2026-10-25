@@ -14,3 +14,7 @@ Gemfile.lock
 node_modules/
 vendor
 _config.deploy.yml
+_site-utk/
+utk-upload/
+dist/
+__pycache__/

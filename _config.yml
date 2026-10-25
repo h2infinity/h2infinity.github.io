@@ -17,8 +17,8 @@ keywords: Networked Systems Laboratory, Seddik Djouadi, distributed control, mul
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.svg
 
-url: https://h2infinity.github.io # GitHub Pages user site
-baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
+url: https://web.eecs.utk.edu # Primary university website
+baseurl: /~mdjouadi # GitHub Pages uses its separate configuration override
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: false # native scrolling keeps the default pages lightweight
@@ -207,6 +207,9 @@ exclude:
   - PUBLISHING.md
   - VALIDATION.md
   - START_HERE.md
+  - dist/
+  - _site-utk/
+  - utk-upload/
   - docs/
   - node_modules/
   - .venv/
