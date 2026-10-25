@@ -1,5 +1,11 @@
 ## Alumni
 
+### Yichao Wang
+
+Yichao Wang's research at the University of Tennessee, Knoxville, addressed wide-area power-system damping control, network communication delays, and stability under intermittent information transmission. He collaborated with Fatima Taousser, Seddik M. Djouadi, and Kevin Tomsovic. His professional experience includes Dominion Energy.
+
+[LinkedIn](https://www.linkedin.com/in/wang-yichao-b265b827a) · [CURENT research poster](https://curent.utk.edu/wp-content/uploads/2024/07/Yichao_Wang_UTK_Tomsovic_1-1.pdf)
+
 ### Tumin Wu - Ph.D., 2024
 
 Doctoral research on cluster-based model reduction for fluid flows. His [UTK dissertation](https://trace.tennessee.edu/server/api/core/bitstreams/18041cfc-2794-428b-b5de-b27e50e0ce4b/content), _Cluster-Based Model Reduction with Application to Fluid Flows_, is dated December 2024. He coauthored the laboratory's 2026 Cluster-POD paper.
